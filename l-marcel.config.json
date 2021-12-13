@@ -1,6 +1,10 @@
 {
   "name": "Portfólio",
   "icon": "self",
+  "technologies": [
+    "Next.js",
+    "React.js"
+  ],
   "links": {
     "self": "",
     "figma": ""
