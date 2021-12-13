@@ -1,11 +1,17 @@
 import { Icon as ChakraIcon, IconProps as ChakraIconProps } from "@chakra-ui/react";
-import { FaReact, FaNode, FaDocker, FaGitAlt, FaJava, FaPython } from "react-icons/fa";
+import { 
+  FaReact, FaLinkedinIn, FaGithubAlt, FaNode, FaDocker, FaGitAlt, 
+  FaJava, FaPython, FaDiscord, FaFacebookF
+} from "react-icons/fa";
 import { SiTypescript, SiNextdotjs, SiJavascript, SiGnubash } from "react-icons/si";
 import { DiCss3, DiSass } from "react-icons/di";
-import { AiFillHtml5 } from "react-icons/ai";
+import { AiFillHtml5, AiFillYoutube } from "react-icons/ai";
 import { RiFlutterFill } from "react-icons/ri";
-import { BsQuestionCircle } from "react-icons/bs";
-import { AiOutlineCalendar, AiOutlineCheck } from "react-icons/ai";
+import { BsQuestionCircle, BsCheck2Circle, BsInstagram } from "react-icons/bs";
+import { AiOutlineCalendar, AiOutlineCheck, AiOutlineInfoCircle } from "react-icons/ai";
+import { BiError } from "react-icons/bi";
+import { IoIosRocket } from "react-icons/io";
+import { FiDownload } from "react-icons/fi";
 
 interface IconProps extends ChakraIconProps {
   name?: string;
@@ -28,7 +34,18 @@ const icons = {
   "bash": SiGnubash,
   "default": BsQuestionCircle,
   "calendar": AiOutlineCalendar,
-  "check": AiOutlineCheck
+  "check": AiOutlineCheck,
+  "error": BiError,
+  "success": BsCheck2Circle,
+  "info": AiOutlineInfoCircle,
+  "discord": FaDiscord,
+  "github": FaGithubAlt,
+  "linkedin": FaLinkedinIn,
+  "instagram": BsInstagram,
+  "facebook": FaFacebookF,
+  "rocketseat": IoIosRocket,
+  "youtube": AiFillYoutube,
+  "currículo virtual": FiDownload,
 };
 
 function Icon({ name = "default", ...rest }: IconProps) {

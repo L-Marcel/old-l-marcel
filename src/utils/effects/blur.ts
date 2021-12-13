@@ -1,6 +1,19 @@
+import { BoxProps } from "@chakra-ui/react";
 import { boxShadow } from "./shadow";
 
-function bgBlur(bg?: string, opacity?: number) {
+interface BgBlurOptions extends BoxProps { 
+  hoverEffect?: boolean,
+  cursorPointer?: boolean; 
+};
+
+function bgBlur({ 
+  bg = "white", 
+  opacity = 0.45, 
+  hoverEffect = false, 
+  cursorPointer = false, 
+  borderRadius = 15,
+  ...rest
+}: BgBlurOptions) {
   return {
     position: "relative",
     bg: "transparent",
@@ -13,11 +26,16 @@ function bgBlur(bg?: string, opacity?: number) {
       h: "100%",
       zIndex: -5,
       backdropFilter: "blur(4px)",
-      opacity: opacity ?? 0.45,
-      bg: bg ?? "white",
-      borderRadius: 15,
-      ...boxShadow()
-    }
+      opacity,
+      bg,
+      borderRadius,
+      ...rest,
+      ...boxShadow(),
+    },
+    _hover: hoverEffect && {
+      filter: "brightness(0.92)",
+      cursor: cursorPointer? "pointer":null
+    },
   };
 };
 

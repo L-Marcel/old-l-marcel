@@ -1,6 +1,6 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import { AppProps } from 'next/app';
-import Background from '../components/background';
+import Background from '../components/Background';
 import { theme } from '../theme/default';
 import 'focus-visible/dist/focus-visible';
 

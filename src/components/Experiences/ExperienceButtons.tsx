@@ -2,7 +2,7 @@ import { Button, ButtonGroup, useBreakpointValue } from "@chakra-ui/react";
 import { boxShadow } from "../../utils/effects/shadow";
 import Icon from "../Icon";
 
-function SpecializationButtons() {
+function ExperienceButtons() {
   const isWideOrNormalVersion = useBreakpointValue({
     lg: true,
     xl: true,
@@ -24,7 +24,7 @@ function SpecializationButtons() {
         leftIcon={<Icon name="calendar"/>}
         size={isWideOrNormalVersion? "md":"sm"}
         bg="primary.300"
-        { ...boxShadow() }
+        { ...boxShadow(true) }
       >
         Histórico
       </Button>
@@ -34,7 +34,7 @@ function SpecializationButtons() {
         leftIcon={<Icon name="check"/>}
         size={isWideOrNormalVersion? "md":"sm"}
         bg="primary.300"
-        { ...boxShadow() }
+        { ...boxShadow(true) }
       >
         Certificados
       </Button>
@@ -42,4 +42,4 @@ function SpecializationButtons() {
   );
 };
 
-export default SpecializationButtons;
+export default ExperienceButtons;

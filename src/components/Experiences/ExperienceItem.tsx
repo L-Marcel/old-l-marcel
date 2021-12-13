@@ -3,19 +3,17 @@ import { boxShadow } from "../../utils/effects/shadow";
 import { getProgressMessage } from "../../utils/getProgressMessage";
 import Icon from "../Icon";
 
-interface SpecializationItemProps {
+interface ExperienceItemProps {
   name: string;
   progress?: number;
 };
 
-function SpecializationItem({ name, progress = 0 }: SpecializationItemProps) {
+function ExperienceItem({ name, progress = 0 }: ExperienceItemProps) {
   return (
     <Tooltip 
       hasArrow 
       arrowSize={10}
-      arrowPadding={5}
-      bg="primary.500"
-      placement="bottom-end"
+      bg="primary.400"
       label={`${name} -> ${getProgressMessage(progress)}`}
       { ...boxShadow() }
     >
@@ -38,4 +36,4 @@ function SpecializationItem({ name, progress = 0 }: SpecializationItemProps) {
   );
 };
 
-export default SpecializationItem;
+export default ExperienceItem;

@@ -4,13 +4,24 @@ import { bgBlur } from "../../utils/effects/blur";
 interface ContainerProps extends BoxProps {
   withAccordion?: boolean;
   accordionTitle?: string;
+  hoverEffect?: boolean;
+  cursorPointer?: boolean;
+  startOpen?: boolean;
 };
 
-function Container({ children, withAccordion = false, accordionTitle = "", ...rest }: ContainerProps) {
+function Container({ 
+  children, 
+  withAccordion = false, 
+  accordionTitle = "", 
+  hoverEffect = false, 
+  cursorPointer = false,
+  startOpen = true,
+  ...rest 
+}: ContainerProps) {
   if(!withAccordion) {
     return (
       <Box
-        {...bgBlur() as any}
+        {...bgBlur({ hoverEffect, cursorPointer }) as any}
         mb={[30, 50]}
         p={30}
         w={["auto", "auto", "auto", 380]}
@@ -23,14 +34,14 @@ function Container({ children, withAccordion = false, accordionTitle = "", ...re
 
   return (
     <Box
-      {...bgBlur() as any}
+      {...bgBlur({ hoverEffect }) as any}
       mb={[30, 50]}
       p={30}
       w={["auto", "auto", "auto", 380]}
       {...rest}
     >
-      <Accordion allowToggle defaultIndex={0}>
-        <AccordionItem border="none" index={0}>
+      <Accordion allowToggle defaultIndex={startOpen? 0:-1}>
+        <AccordionItem border="none" tabIndex={0}>
           <h2>
             <AccordionButton
               p={0}
