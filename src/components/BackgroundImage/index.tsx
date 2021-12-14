@@ -1,6 +1,6 @@
-import { Box, Image } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 
-function Background() {
+function BackgroundImage() {
   return (
     <>
       <Box
@@ -27,4 +27,4 @@ function Background() {
   );
 };
 
-export default Background;
+export default BackgroundImage;

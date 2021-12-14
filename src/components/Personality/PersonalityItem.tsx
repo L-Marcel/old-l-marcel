@@ -3,21 +3,20 @@ import { AiOutlineCheck } from "react-icons/ai";
 import { VscChromeClose } from "react-icons/vsc";
 
 interface PersonalityItemProps {
-  type: "quality" | "defect";
-  description: string;
+  personality: Personality;
 };
 
-function PersonalityItem({ type, description }: PersonalityItemProps) {
+function PersonalityItem({ personality }: PersonalityItemProps) {
   return (
     <ListItem
       fontSize={[14, 16]}
     >
       <ListIcon 
-        as={type === "quality"? AiOutlineCheck:VscChromeClose} 
-        color={type === "quality"? "primary.500":"red"}
+        as={personality.type === "quality"? AiOutlineCheck:VscChromeClose} 
+        color={personality.type === "quality"? "primary.500":"red"}
         mb="1.5px"
       />
-      {description}
+      {personality.description}
     </ListItem>
   );
 };

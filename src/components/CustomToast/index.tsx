@@ -1,10 +1,10 @@
-import { Heading, HStack, StackProps, UseToastOptions } from "@chakra-ui/react";
-import { bgBlur } from "../../utils/effects/blur";
+import { BoxProps, Heading, HStack, StackProps, UseToastOptions } from "@chakra-ui/react";
+import { bgBlur } from "../../theme/effects/blur";
 import Icon from "../Icon";
 
 type CustomToastTypeOptions = "success" | "info" | "error";
 
-interface CustomToastProps {
+interface CustomToastProps extends BoxProps {
   title: string;
   type: CustomToastTypeOptions;
 };
@@ -24,17 +24,19 @@ const toastTypesProps = {
   } as StackProps,
 };
 
-function CustomToast({ title, type }: CustomToastProps) {
+function CustomToast({ title, type, ...rest }: CustomToastProps) {
   return (
     <HStack
       {...bgBlur({ 
         borderRadius: 8, 
         borderLeftWidth: 4, 
         bg: toastTypesProps[type].bg,
-        opacity: 0.9
+        opacity: 0.94
       }) as any}
       p={4}
+      mr={3}
       color={toastTypesProps[type].color}
+      {...rest}
     >
       <Icon h={25} w={25} name={type}/>
       <Heading
@@ -50,7 +52,7 @@ export const customToast = (id: string, title: string, type: CustomToastTypeOpti
   return {
     id,
     position: "top-end",
-    duration: 2000,
+    duration: 3000,
     isClosable: true,
     render: () => {
       return (

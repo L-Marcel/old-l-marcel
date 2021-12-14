@@ -1,16 +1,15 @@
-import { ChakraProvider } from '@chakra-ui/react';
 import { AppProps } from 'next/app';
-import Background from '../components/Background';
+import BackgroundImage from '../components/BackgroundImage';
 import { theme } from '../theme/default';
 import 'focus-visible/dist/focus-visible';
-
+import { AllProviders } from '../contexts/AllProviders';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider theme={theme}>
+    <AllProviders theme={theme}>
       <Component {...pageProps}/>
-      <Background/>
-    </ChakraProvider>
+      <BackgroundImage/>
+    </AllProviders>
   );
 };
 

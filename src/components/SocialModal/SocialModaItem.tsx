@@ -1,6 +1,5 @@
 import { Button, ButtonProps, useToast } from "@chakra-ui/react";
-import { MouseEventHandler } from "react";
-import { boxShadow } from "../../utils/effects/shadow";
+import { boxShadow } from "../../theme/effects/shadow";
 import { customToast } from "../CustomToast";
 import SocialModalButtonIcon from "./SocialModalButtonIcon";
 import SocialModalButtonText from "./SocialModalButtonText";

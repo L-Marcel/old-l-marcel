@@ -1,17 +1,18 @@
 import { Avatar, Heading, HStack, Icon, Text, useDisclosure, VStack } from "@chakra-ui/react";
-import { boxShadow } from "../../utils/effects/shadow";
+import { boxShadow } from "../../theme/effects/shadow";
 import Container from "../Container";
 import SocialModal from "../SocialModal";
 import { IoMdOpen } from "react-icons/io";
+import useUser from "../../hooks/useUser";
 
 interface ProfileProps {
   isWideOrNormalVersion: boolean;
   socialLinks: SocialLink[];
   cvLink?: string;
-  user: User;
 };
 
-function Profile({ isWideOrNormalVersion, socialLinks, cvLink, user }: ProfileProps) {
+function Profile({ isWideOrNormalVersion, socialLinks, cvLink }: ProfileProps) {
+  const { user } = useUser();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -34,7 +35,7 @@ function Profile({ isWideOrNormalVersion, socialLinks, cvLink, user }: ProfilePr
         right={0}
         color="primary.500"
       />
-      <HStack spacing={5}>
+      <HStack spacing={[3, 5]}>
         <Avatar
           name={user.fullname} 
           size={ isWideOrNormalVersion? "lg":"md" } 
@@ -62,7 +63,8 @@ function Profile({ isWideOrNormalVersion, socialLinks, cvLink, user }: ProfilePr
             fontSize={[12, 14]}
             color="primary.500"
           >
-            @{user.username}
+            @{user.username} {isWideOrNormalVersion? '-> ':'- '}
+            clique para mais
           </Text>
         </VStack>
       </HStack>

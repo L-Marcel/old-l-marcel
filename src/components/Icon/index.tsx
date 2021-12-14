@@ -1,17 +1,21 @@
 import { Icon as ChakraIcon, IconProps as ChakraIconProps } from "@chakra-ui/react";
 import { 
-  FaReact, FaLinkedinIn, FaGithubAlt, FaNode, FaDocker, FaGitAlt, 
+  FaReact, FaLinkedinIn, FaGithubAlt, FaDocker, FaGitAlt, 
   FaJava, FaPython, FaDiscord, FaFacebookF
 } from "react-icons/fa";
-import { SiTypescript, SiNextdotjs, SiJavascript, SiGnubash } from "react-icons/si";
+import { SiTypescript, SiNextdotjs, SiGnubash } from "react-icons/si";
 import { DiCss3, DiSass } from "react-icons/di";
 import { AiFillHtml5, AiFillYoutube } from "react-icons/ai";
 import { RiFlutterFill } from "react-icons/ri";
 import { BsQuestionCircle, BsCheck2Circle, BsInstagram } from "react-icons/bs";
 import { AiOutlineCalendar, AiOutlineCheck, AiOutlineInfoCircle } from "react-icons/ai";
 import { BiError } from "react-icons/bi";
-import { IoIosRocket } from "react-icons/io";
+import { IoIosRocket, IoLogoJavascript } from "react-icons/io";
 import { FiDownload } from "react-icons/fi";
+import { GrNode } from "react-icons/gr";
+import { VscTerminalPowershell } from "react-icons/vsc";
+import { infinityRotate } from "../../theme/animations/rotate";
+
 
 interface IconProps extends ChakraIconProps {
   name?: string;
@@ -19,13 +23,13 @@ interface IconProps extends ChakraIconProps {
 
 const icons = {
   "react.js": FaReact,
-  "node.js": FaNode,
+  "node.js": GrNode,
   "typescript": SiTypescript,
   "next.js": SiNextdotjs,
   "html": AiFillHtml5,
   "css": DiCss3,
   "sass": DiSass,
-  "javascript": SiJavascript,
+  "javascript": IoLogoJavascript,
   "docker": FaDocker,
   "flutter": RiFlutterFill,
   "java": FaJava,
@@ -46,12 +50,18 @@ const icons = {
   "rocketseat": IoIosRocket,
   "youtube": AiFillYoutube,
   "currículo virtual": FiDownload,
+  "shell": VscTerminalPowershell,
 };
 
 function Icon({ name = "default", ...rest }: IconProps) {
-  const icon = icons[name.toLowerCase()] ?? icons["default"];
+  const _name = name.toLowerCase();
+  const icon = icons[_name] ?? icons["default"];
   return (
-    <ChakraIcon as={icon} {...rest}/>
+    <ChakraIcon
+      as={icon}
+      { ..._name === "react.js"? infinityRotate():null } //o filho predileto
+      {...rest}
+    />
   );
 };
 

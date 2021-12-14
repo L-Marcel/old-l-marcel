@@ -1,7 +1,7 @@
 import { IconButton, Modal as ChakraModal, ModalBody, ModalContent, ModalContentProps, ModalOverlay } from "@chakra-ui/react";
 import { ReactNode } from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import { boxShadow } from "../../utils/effects/shadow";
+import { boxShadow } from "../../theme/effects/shadow";
 
 interface SocialModalProps extends ModalContentProps {
   onClose: () => void,

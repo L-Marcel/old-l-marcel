@@ -3,7 +3,9 @@
   "icon": "self",
   "technologies": [
     "Next.js",
-    "React.js"
+    "React.js",
+    "HTML",
+    "CSS"
   ],
   "links": {
     "self": "",

@@ -1,5 +1,5 @@
 import { extendTheme } from "@chakra-ui/react";
-import { boxShadow } from "../utils/effects/shadow";
+import { boxShadow } from "./effects/shadow";
 import colors from "./colors.json";
 
 export const theme = extendTheme({
@@ -10,6 +10,14 @@ export const theme = extendTheme({
   },
   styles: {
     global: {
+      ":root": {
+        "--primary": colors.primary[500],
+        "--primary-400": colors.primary[400],
+        "--primary-300": colors.primary[300],
+        "--primary-200": colors.primary[200],
+        "--primary-100": colors.primary[100],
+        "--white": colors.white
+      },
       "*": {
         userSelect: "none",
         transition: "filter .2s linear !important",
@@ -37,7 +45,13 @@ export const theme = extendTheme({
       "button:hover": {
         filter: "brightness(0.95)"
       },
-      "div[role='progressbar']": {
+      ".red-progressbar > div[role='progressbar']": {
+        bg: colors.red[400]
+      },
+      ".green-progressbar > div[role='progressbar']": {
+        bg: colors.green[400]
+      },
+      ".primary-progressbar > div[role='progressbar']": {
         bg: colors.primary[500]
       },
       ".js-focus-visible :focus:not([data-focus-visible-added])": {
@@ -46,7 +60,7 @@ export const theme = extendTheme({
       "input:focus": {
         border: "none",
         boxShadow: "none !important"
-      }
+      },
     }
   }
 });

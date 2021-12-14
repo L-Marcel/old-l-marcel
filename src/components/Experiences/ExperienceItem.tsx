@@ -1,20 +1,28 @@
 import { HStack, Progress, Tooltip } from "@chakra-ui/react";
-import { boxShadow } from "../../utils/effects/shadow";
+import { boxShadow } from "../../theme/effects/shadow";
+import { getColorPointsBreakpoint } from "../../utils/getColorPointsBreakpoint";
 import { getProgressMessage } from "../../utils/getProgressMessage";
 import Icon from "../Icon";
 
 interface ExperienceItemProps {
   name: string;
   progress?: number;
+  message: string;
 };
 
-function ExperienceItem({ name, progress = 0 }: ExperienceItemProps) {
+function ExperienceItem({ name, message, progress = 0 }: ExperienceItemProps) {
+  if(progress < 10) {
+    return null;
+  };
+
+  const color = getColorPointsBreakpoint(progress);
+
   return (
     <Tooltip 
       hasArrow 
       arrowSize={10}
       bg="primary.400"
-      label={`${name} -> ${getProgressMessage(progress)}`}
+      label={`${name} -> ${message}`}
       { ...boxShadow() }
     >
       <HStack w="100%">
@@ -23,12 +31,13 @@ function ExperienceItem({ name, progress = 0 }: ExperienceItemProps) {
           width={6} 
           height={6} 
           mr={1} 
-          color="primary.500"
+          color={`${color}.500`}
         />
         <Progress 
-          value={progress} 
+          value={progress}
+          className={`${color}-progressbar`}
           w="100%"
-          size="sm" 
+          size="sm"
           bg={["primary.300", "primary.200"]}
         />
       </HStack>

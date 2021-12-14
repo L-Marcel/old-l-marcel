@@ -1,5 +1,5 @@
 import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, BoxProps } from "@chakra-ui/react";
-import { bgBlur } from "../../utils/effects/blur";
+import { bgBlur } from "../../theme/effects/blur";
 
 interface ContainerProps extends BoxProps {
   withAccordion?: boolean;
@@ -7,6 +7,7 @@ interface ContainerProps extends BoxProps {
   hoverEffect?: boolean;
   cursorPointer?: boolean;
   startOpen?: boolean;
+  stickyMode?: boolean;
 };
 
 function Container({ 
@@ -16,12 +17,13 @@ function Container({
   hoverEffect = false, 
   cursorPointer = false,
   startOpen = true,
+  stickyMode = false,
   ...rest 
 }: ContainerProps) {
   if(!withAccordion) {
     return (
       <Box
-        {...bgBlur({ hoverEffect, cursorPointer }) as any}
+        {...bgBlur({ hoverEffect, cursorPointer, stickyMode }) as any}
         mb={[30, 50]}
         p={30}
         w={["auto", "auto", "auto", 380]}

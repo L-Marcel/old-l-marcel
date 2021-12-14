@@ -1,4 +1,4 @@
-import { Box, VStack } from "@chakra-ui/react";
+import { VStack } from "@chakra-ui/react";
 import { useState } from "react";
 import Modal from "../Modal";
 import SocialModalItem from "./SocialModaItem";
@@ -17,6 +17,14 @@ function SocialModal({ isOpen, onClose, socialLinks, cvLink }: SocialModalProps)
   const links = socialLinks.slice(4, socialLinks.length);
   const needFooter = links.length > 6 || cvLink;
 
+  function updateBackgroundImage(image: string) {
+    const _image = new Image();
+    _image.src = image;
+    _image.onload = () => {
+      setImage(image);
+    };
+  };
+
   return (
     <Modal 
       isOpen={isOpen} 
@@ -28,6 +36,7 @@ function SocialModal({ isOpen, onClose, socialLinks, cvLink }: SocialModalProps)
       bgPos="85px max(50% + 200px, 100% + 65px)"
       bgColor="primary.100"
       bgRepeat="no-repeat"
+      m={4}
     >
       <VStack
         borderTopRadius={6}
@@ -42,8 +51,9 @@ function SocialModal({ isOpen, onClose, socialLinks, cvLink }: SocialModalProps)
         {
           firstLinks.map(s => {
             return (
-              <SocialModalItem 
-                onChangeTarget={() => setImage(s.background)}
+              <SocialModalItem
+                key={s.name}
+                onChangeTarget={() => updateBackgroundImage(s.background)}
                 link={s.link} 
                 media={s.name}
                 type={s.type}
@@ -61,6 +71,7 @@ function SocialModal({ isOpen, onClose, socialLinks, cvLink }: SocialModalProps)
           links.map(s => {
             return (
               <SocialModalItem
+                key={s.name}
                 onChangeTarget={() => setImage(s.background)}
                 link={s.link} 
                 media={s.name} 
