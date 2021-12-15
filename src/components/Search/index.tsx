@@ -1,12 +1,10 @@
 import { HStack, Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import useFilterOptions from "../../hooks/useFilterOptions";
 import Container from "../Container";
 
 function Search() {
   const { filterOptions, setFilterOptions } = useFilterOptions();
-  const [isStycked, setIsStycked] = useState(false);
 
   function onChangeQuery(q: string) {
     setFilterOptions({
@@ -14,18 +12,6 @@ function Search() {
       query: q
     });
   };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([e]) => {
-      setIsStycked(e.intersectionRatio < 1);
-    }, {
-      rootMargin: "-50px 0px 0px 0px",
-      threshold: [1],
-    });
-
-    let element = document.getElementById("search-group")
-    observer.observe(element);
-  }, []);
 
   return (
     <HStack
@@ -41,7 +27,7 @@ function Search() {
         p={0}
         color="primary.500"
         hoverEffect
-        stickyMode={isStycked}
+        stickyMode
       >
         <InputGroup>
           <InputLeftElement

@@ -14,7 +14,7 @@ function SocialModalButtonIcon({ name }: SocialModalButtonIconProps) {
       justifyContent="center"
       alignItems="center"
       w={10}
-      borderLeftRadius={6}
+      borderLeftRadius={5}
     >
       <Icon 
         h="80%" 

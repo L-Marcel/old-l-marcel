@@ -7,7 +7,7 @@ import { SiTypescript, SiNextdotjs, SiGnubash } from "react-icons/si";
 import { DiCss3, DiSass } from "react-icons/di";
 import { AiFillHtml5, AiFillYoutube } from "react-icons/ai";
 import { RiFlutterFill } from "react-icons/ri";
-import { BsQuestionCircle, BsCheck2Circle, BsInstagram } from "react-icons/bs";
+import { BsQuestionCircle, BsCheck2Circle, BsInstagram, BsFillShareFill } from "react-icons/bs";
 import { AiOutlineCalendar, AiOutlineCheck, AiOutlineInfoCircle } from "react-icons/ai";
 import { BiError } from "react-icons/bi";
 import { IoIosRocket, IoLogoJavascript } from "react-icons/io";
@@ -15,7 +15,6 @@ import { FiDownload } from "react-icons/fi";
 import { GrNode } from "react-icons/gr";
 import { VscTerminalPowershell } from "react-icons/vsc";
 import { infinityRotate } from "../../theme/animations/rotate";
-
 
 interface IconProps extends ChakraIconProps {
   name?: string;
@@ -51,6 +50,7 @@ const icons = {
   "youtube": AiFillYoutube,
   "currículo virtual": FiDownload,
   "shell": VscTerminalPowershell,
+  "share": BsFillShareFill
 };
 
 function Icon({ name = "default", ...rest }: IconProps) {

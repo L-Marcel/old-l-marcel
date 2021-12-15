@@ -19,6 +19,8 @@ function AppProvider({ children }: AppProviderProps) {
     qtdRepos: 0,
     reposUrl: "",
     technologies: [],
+    links: [],
+    cv: "",
     username: ""
   });
   const [repositories, setRepositories] = useState<Repository[]>([]);

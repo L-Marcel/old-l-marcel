@@ -11,7 +11,7 @@ function _RepositoriesList() {
   
   return (
     <SimpleGrid
-      columns={[1, 1, 2, 2, 2, 3]}
+      columns={[1, 1, 2, 2, 2, 2]}
       spacing={10}
       maxW="100%"
     >
@@ -22,10 +22,10 @@ function _RepositoriesList() {
               key={repo.id}
               w="100%"
               mb={0}
+              h="min-content"
               textTransform="capitalize"
               display="flex"
               flexDir="column"
-              justifyContent="space-between"
               hoverEffect
               cursorPointer
               onClick={() => {
@@ -36,15 +36,22 @@ function _RepositoriesList() {
               }}
             >
               <Heading
-                fontSize={[12, 16]}
+                fontSize={[14, 16]}
                 lineHeight={[5, 6]}
                 color="primary.500"
               >
-                {repo.formattedName.slice(0, 28) + "..."}
+                {repo.formattedName}
               </Heading>
+              <Text 
+                textTransform="none"
+                fontSize={14}
+                maxW="90%"
+              >
+                {repo.description?.slice(0, 156)}{repo.description?.length > 156 && "..."}
+              </Text>
               <HStack mt={2} color="primary.500">
                 <Icon name={repo.importedConfig.technologies[0]} w={6} h={6}/>
-                <Text> {'->'} {repo.importedConfig.technologies[0]}</Text>
+                <Text fontSize={[12, 15]}> {'->'} {repo.importedConfig.technologies[0]}</Text>
               </HStack>
             </Container>
           );

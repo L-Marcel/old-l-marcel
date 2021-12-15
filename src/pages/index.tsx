@@ -1,4 +1,4 @@
-import { Flex, useBreakpointValue } from "@chakra-ui/react";
+import { Box, Flex, Stack, useBreakpointValue } from "@chakra-ui/react";
 import AboutMe from "../components/AboutMe";
 import Profile from "../components/Profile";
 import Experiences from "../components/Experiences";
@@ -14,16 +14,13 @@ import useRepositories from "../hooks/useRepositories";
 import { useEffect } from "react";
 import { getPointsOfTecnology } from "../utils/getPointsOfTecnology";
 import useUser from "../hooks/useUser";import Head from "next/head";
-;
 
 interface HomeProps {
-  socialLinks: SocialLink[];
-  cvLink?: string;
   user: User;
   repos: Repository[];
 };
 
-export default function Home({ socialLinks, cvLink, user, repos }: HomeProps) {
+export default function Home({ user, repos }: HomeProps) {
   const { setRepositories } = useRepositories();
   const { setUser } = useUser();
   const isWideOrNormalVersion = useBreakpointValue({
@@ -58,9 +55,7 @@ export default function Home({ socialLinks, cvLink, user, repos }: HomeProps) {
           flexDir="column"
           h="max-content"
         >
-          <Profile 
-            cvLink={cvLink} 
-            socialLinks={socialLinks} 
+          <Profile
             isWideOrNormalVersion={isWideOrNormalVersion}
           />
           { orderedContainers[isWideOrNormalVersion? 0:1] }
@@ -72,8 +67,10 @@ export default function Home({ socialLinks, cvLink, user, repos }: HomeProps) {
           h="max-content"
         >
           { orderedContainers[isWideOrNormalVersion? 1:0] }
-          <Search/>
-          <RepositoriesList/>
+          <Stack>
+            <Search/>
+            <RepositoriesList/>
+          </Stack>
         </Flex>
       </Flex>
     </>
@@ -82,7 +79,7 @@ export default function Home({ socialLinks, cvLink, user, repos }: HomeProps) {
 
 export const getStaticProps: GetStaticProps = async() => {
   const prismic = getPrismicClient();
-  const data = await prismic.getSingle("social-links", {}).then(res => {
+  const links = await prismic.getSingle("social-links", {}).then(res => {
     const { media, "cv-link": cvLink } = res.data;
     const socialLinks: SocialLink[] = media.map(sl => {
       return {
@@ -94,8 +91,8 @@ export const getStaticProps: GetStaticProps = async() => {
     });
     
     return {
-      socialLinks,
-      cvLink
+      links: socialLinks,
+      cv: cvLink
     };
   });
 
@@ -182,10 +179,10 @@ export const getStaticProps: GetStaticProps = async() => {
     props: {
       user: {
         ...user,
-        ...user_data
+        ...user_data,
+        ...links
       },
       repos,
-      ...data
     } as HomeProps,
     revalidate: 1000 * 60 * 60 * 24 //A cada 24 horas atualiza os dados
   };

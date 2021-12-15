@@ -1,5 +1,5 @@
 import { BoxProps, Heading, HStack, StackProps, UseToastOptions } from "@chakra-ui/react";
-import { bgBlur } from "../../theme/effects/blur";
+import { bgEffect } from "../../theme/effects/bg";
 import Icon from "../Icon";
 
 type CustomToastTypeOptions = "success" | "info" | "error";
@@ -27,7 +27,7 @@ const toastTypesProps = {
 function CustomToast({ title, type, ...rest }: CustomToastProps) {
   return (
     <HStack
-      {...bgBlur({ 
+      {...bgEffect({ 
         borderRadius: 8, 
         borderLeftWidth: 4, 
         bg: toastTypesProps[type].bg,

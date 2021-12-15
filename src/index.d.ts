@@ -41,6 +41,8 @@ declare type User = {
   historic: HistoricEvent[];
   certificates: Ceriticate[];
   personality: Personality[];
+  links: SocialLink[];
+  cv: string;
   about: string;
 };
 
