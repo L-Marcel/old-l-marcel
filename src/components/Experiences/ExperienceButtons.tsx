@@ -19,11 +19,10 @@ function ExperienceButtons() {
         cvLink={user.cv}
       />
       <ButtonGroup 
-        mb={-4}
-        mt={-4}
         mx="auto"
         isAttached
         spacing={[0, 5]}
+        mb={15}
         zIndex={5}
         { ...boxShadow() }
       >

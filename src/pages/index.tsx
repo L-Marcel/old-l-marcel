@@ -14,6 +14,7 @@ import useRepositories from "../hooks/useRepositories";
 import { useEffect } from "react";
 import { getPointsOfTecnology } from "../utils/getPointsOfTecnology";
 import useUser from "../hooks/useUser";import Head from "next/head";
+import ExperienceButtons from "../components/Experiences/ExperienceButtons";
 
 interface HomeProps {
   user: User;
@@ -58,6 +59,7 @@ export default function Home({ user, repos }: HomeProps) {
           <Profile
             isWideOrNormalVersion={isWideOrNormalVersion}
           />
+          <ExperienceButtons/>
           { orderedContainers[isWideOrNormalVersion? 0:1] }
           <Qualities/>
         </Flex>

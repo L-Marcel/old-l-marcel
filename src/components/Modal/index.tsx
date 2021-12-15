@@ -28,7 +28,7 @@ function Modal({ isOpen, onClose, children, ...rest }: SocialModalProps) {
           color="primary.500"
           {...boxShadow(true)}
         />
-        <ModalBody p={0}>
+        <ModalBody p={0} my="auto">
           { children}
         </ModalBody>
       </ModalContent>

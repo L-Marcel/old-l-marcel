@@ -11,7 +11,7 @@ function Profile({ isWideOrNormalVersion }: ProfileProps) {
   const { user } = useUser();
 
   return (
-    <Container>
+    <Container mb={15}>
       <HStack spacing={[3, 5]}>
         <Avatar
           name={user.fullname} 
