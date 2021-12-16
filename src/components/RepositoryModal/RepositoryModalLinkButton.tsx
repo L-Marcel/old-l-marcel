@@ -1,7 +1,8 @@
 
+import { ButtonProps } from "@chakra-ui/react";
 import Button from "../Button";
 
-interface RepositoryModalLinkButtonProps {
+interface RepositoryModalLinkButtonProps extends ButtonProps {
   link: string;
   title: string;
   icon: string;
@@ -10,13 +11,15 @@ interface RepositoryModalLinkButtonProps {
 function RepositoryModalLinkButton({
   link,
   title,
-  icon
+  icon,
+  ...rest
 }: RepositoryModalLinkButtonProps) {
   return (
     <Button
       aria-label="share"
       icon={icon}
       link={link}
+      {...rest}
     >
       {title}
     </Button>

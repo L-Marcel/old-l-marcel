@@ -6,7 +6,7 @@ import {
 import { SiTypescript, SiNextdotjs, SiGnubash } from "react-icons/si";
 import { DiCss3, DiSass } from "react-icons/di";
 import { AiFillHtml5, AiFillYoutube } from "react-icons/ai";
-import { RiFlutterFill } from "react-icons/ri";
+import { RiFlutterFill, RiFilePaper2Line } from "react-icons/ri";
 import { BsQuestionCircle, BsCheck2Circle, BsInstagram, BsFillShareFill } from "react-icons/bs";
 import { AiOutlineCalendar, AiOutlineCheck, AiOutlineInfoCircle } from "react-icons/ai";
 import { BiError } from "react-icons/bi";
@@ -51,7 +51,8 @@ const icons = {
   "shell": VscTerminalPowershell,
   "share": BsFillShareFill,
   "figma": FiFigma,
-  "self": FiPaperclip
+  "self": FiPaperclip,
+  "documentation": RiFilePaper2Line
 };
 
 function Icon({ name = "default", ...rest }: IconProps) {

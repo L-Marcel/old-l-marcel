@@ -1,6 +1,6 @@
-import { Badge, Box, ButtonGroup, Heading, Text } from "@chakra-ui/react";
-import { boxShadow } from "../../theme/effects/shadow";
+import { Badge, Box, Heading, Text, useBreakpointValue } from "@chakra-ui/react";
 import Modal from "../Modal";
+import RepositoryModalButtonsGroup from "./RepositoryModalButtonsGroup";
 import RepositoryModalLinkButton from "./RepositoryModalLinkButton";
 
 interface RepositoryProps {
@@ -10,14 +10,19 @@ interface RepositoryProps {
 };
 
 function RepositoryModal({ isOpen, onClose, repo }: RepositoryProps) {
+  const isWideOrNormalVersion = useBreakpointValue({
+    lg: true,
+    base: false
+  });
+  
   return (
     <Modal
       borderRadius={8}
       isOpen={isOpen} 
       onClose={onClose}
       position="relative"
-      bgColor="white"
-      boxSize="xl"
+      bgColor="primary.100"
+      minW="min-content"
       m={4}
       p={[6, 10]}
     >
@@ -46,25 +51,26 @@ function RepositoryModal({ isOpen, onClose, repo }: RepositoryProps) {
         >
           {repo.description}
         </Text> }
-        <ButtonGroup 
-          mx="auto"
-          spacing={[0, 5]}
-          my={5}
-          zIndex={5}
-          isAttached
-          { ...boxShadow() }
-        >
+        <RepositoryModalButtonsGroup isWideOrNormalVersion={isWideOrNormalVersion}>
           { repo.github && <RepositoryModalLinkButton
-            link={repo.github} title="Repositório" icon="github"
+            link={repo.github} 
+            title="Repositório" icon="github"
           /> }
           { repo.importedConfig.links?.figma && <RepositoryModalLinkButton
-            link={repo.importedConfig.links?.figma} title="Figma" icon="figma"
+            link={repo.importedConfig.links?.figma} 
+            title="Figma" icon="figma"
           /> }
           { repo.importedConfig.links?.self && <RepositoryModalLinkButton
-            link={repo.importedConfig.links?.self} title="Visitar" icon="self"
+            link={repo.importedConfig.links?.self} 
+            title="Visitar" icon="self"
           /> }
-        </ButtonGroup>
-        { repo.license && <h1>{repo.license.id}</h1>}
+          { repo.importedConfig.links?.documentation && <RepositoryModalLinkButton
+            link={repo.importedConfig.links?.documentation} 
+            title="Documentação" 
+            icon="documentation"
+          /> }
+        </RepositoryModalButtonsGroup>
+        { repo.license && <></> }
       </Box>
     </Modal>
   );

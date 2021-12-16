@@ -40,11 +40,6 @@ declare type User = {
   about: string;
 };
 
-declare type RepositoryLicense = {
-  id: string;
-  url: string;
-};
-
 declare type Repository = {
   id: number;
   name: string;
@@ -58,7 +53,7 @@ declare type Repository = {
   branch: string;
   importedConfig?: Config;
   badge?: string;
-  license?: RepositoryLicense;
+  license?: string;
 };
 
 declare type Config = {

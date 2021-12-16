@@ -13,7 +13,11 @@ function Modal({ isOpen, onClose, children, ...rest }: SocialModalProps) {
   return (
     <ChakraModal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay/>
-      <ModalContent {...rest} my={[null, "auto"]}>
+      <ModalContent 
+        bgImage="/background.png"
+        {...rest} 
+        my={[null, "auto"]}
+      >
         <IconButton 
           variant="ghost"
           position="absolute"
@@ -21,11 +25,11 @@ function Modal({ isOpen, onClose, children, ...rest }: SocialModalProps) {
           top={6}
           w={38}
           h={38}
-          bg="primary.400" 
+          bg="primary.500"
           aria-label="close-media-modal" 
           icon={<AiOutlineClose/>} 
           onClick={onClose}
-          color="primary.500"
+          color="white"
           {...boxShadow(true)}
         />
         <ModalBody p={0} my="auto">
