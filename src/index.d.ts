@@ -48,6 +48,7 @@ declare type Repository = {
   description?: string;
   fork?: boolean;
   url: string;
+  github: string;
   language: string;
   branch: string;
   importedConfig?: Config;
@@ -97,3 +98,10 @@ declare type Formatter = {
   regex: string;
   replace: string;
 };
+
+declare type RepositoryLink = {
+  type: RepositoryLinkType;
+  value: string;
+};
+
+declare type RepositoryLinkType = "self" | "figma" | "repo";

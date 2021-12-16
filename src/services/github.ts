@@ -24,6 +24,7 @@ async function getGithubRepos(url: string, {
         description: repo.description,
         fork: repo.fork,
         url: repo.url,
+        github: repo.svn_url,
         language: repo.language,
         branch: repo.default_branch
       } as Repository;

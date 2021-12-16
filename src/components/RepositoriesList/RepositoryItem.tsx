@@ -36,7 +36,7 @@ function RepositoryItem({ repo }: RepositoryItemProps) {
           {repo.formattedName}
         </Heading>
         { repo.badge && <Badge
-          fontSize={10} 
+          fontSize={10}
           lineHeight={2}
           bgColor="primary.500" 
           color="white"

@@ -1,5 +1,7 @@
-import { Badge, Box, Heading, Text } from "@chakra-ui/react";
+import { Badge, Box, ButtonGroup, Heading, Text } from "@chakra-ui/react";
+import { boxShadow } from "../../theme/effects/shadow";
 import Modal from "../Modal";
+import RepositoryModalLinkButton from "./RepositoryModalLinkButton";
 
 interface RepositoryProps {
   onClose: () => void;
@@ -14,7 +16,7 @@ function RepositoryModal({ isOpen, onClose, repo }: RepositoryProps) {
       isOpen={isOpen} 
       onClose={onClose}
       position="relative"
-      bgColor="primary.100"
+      bgColor="white"
       boxSize="xl"
       m={4}
       p={[6, 10]}
@@ -44,7 +46,23 @@ function RepositoryModal({ isOpen, onClose, repo }: RepositoryProps) {
         >
           {repo.description}
         </Text> }
-        { repo.importedConfig.links?.figma === "" && <h1>abc</h1> }
+        <ButtonGroup 
+          mx="auto"
+          spacing={[0, 5]}
+          my={5}
+          zIndex={5}
+          { ...boxShadow() }
+        >
+          { repo.github && <RepositoryModalLinkButton
+            link={repo.github} title="Repositório" icon="github"
+          /> }
+          { repo.importedConfig.links?.figma && <RepositoryModalLinkButton
+            link={repo.importedConfig.links?.figma} title="Figma" icon="figma"
+          /> }
+          { repo.importedConfig.links?.self && <RepositoryModalLinkButton
+            link={repo.importedConfig.links?.self} title="Visitar" icon="self"
+          /> }
+        </ButtonGroup>
       </Box>
     </Modal>
   );
