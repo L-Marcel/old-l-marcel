@@ -1,4 +1,5 @@
-import { Badge, Box, Heading, Text, useBreakpointValue } from "@chakra-ui/react";
+import { Badge, Box, Heading, HStack, Text, useBreakpointValue } from "@chakra-ui/react";
+import Icon from "../Icon";
 import Modal from "../Modal";
 import RepositoryModalButtonsGroup from "./RepositoryModalButtonsGroup";
 import RepositoryModalLinkButton from "./RepositoryModalLinkButton";
@@ -23,8 +24,9 @@ function RepositoryModal({ isOpen, onClose, repo }: RepositoryProps) {
       position="relative"
       bgColor="primary.100"
       minW="min-content"
+      h="min-content"
       m={4}
-      p={[6, 10]}
+      p={[5, 10]}
     >
       <Box>
         <Heading
@@ -46,8 +48,21 @@ function RepositoryModal({ isOpen, onClose, repo }: RepositoryProps) {
         >
           {repo.badge}
         </Badge> }
+        { repo.importedConfig?.technologies && <Box
+          flexWrap="wrap"
+          display="flex"
+          maxW="90%"
+        >
+          {
+            repo.importedConfig?.technologies?.map(technology => {
+              return (
+                <Icon color="primary.500" mr={2} mt={2} name={technology} w={6} h={6}/>
+              );
+            })
+          }
+        </Box> }
         { repo.description && <Text
-          mt={5}
+          mt={4}
         >
           {repo.description}
         </Text> }
@@ -70,7 +85,15 @@ function RepositoryModal({ isOpen, onClose, repo }: RepositoryProps) {
             icon="documentation"
           /> }
         </RepositoryModalButtonsGroup>
-        { repo.license && <></> }
+        { repo.license && <Text 
+          mt={5}
+          display="flex"
+          alignItems="center"
+          color="primary.500"
+        >
+          <Icon name="license" mr={2} fontSize={22}/>
+          {repo.license}
+        </Text> }
       </Box>
     </Modal>
   );

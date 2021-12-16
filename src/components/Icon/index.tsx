@@ -1,7 +1,7 @@
 import { Icon as ChakraIcon, IconProps as ChakraIconProps } from "@chakra-ui/react";
 import { 
   FaReact, FaLinkedinIn, FaGithubAlt, FaDocker, FaGitAlt, 
-  FaJava, FaPython, FaDiscord, FaFacebookF
+  FaJava, FaPython, FaDiscord, FaFacebookF, FaBalanceScale
 } from "react-icons/fa";
 import { SiTypescript, SiNextdotjs, SiGnubash } from "react-icons/si";
 import { DiCss3, DiSass } from "react-icons/di";
@@ -52,7 +52,8 @@ const icons = {
   "share": BsFillShareFill,
   "figma": FiFigma,
   "self": FiPaperclip,
-  "documentation": RiFilePaper2Line
+  "documentation": RiFilePaper2Line,
+  "license": FaBalanceScale
 };
 
 function Icon({ name = "default", ...rest }: IconProps) {

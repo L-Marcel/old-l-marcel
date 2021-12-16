@@ -19,14 +19,14 @@ function RepositoryModalButtonsGroup({ children, isWideOrNormalVersion = true }:
 
   if(isWideOrNormalVersion) {
     return (
-      <ButtonGroup mx="auto" my={5} {...buttonGroupProps}>
+      <ButtonGroup mx="auto" mt={5} {...buttonGroupProps}>
         {children}
       </ButtonGroup>
     );
   };
 
   return (
-    <Stack mx="auto" my={5} spacing={2}>
+    <Stack mx="auto" mt={5} spacing={2}>
       <ButtonGroup {...buttonGroupProps}>
         {firstChildrens}
       </ButtonGroup>

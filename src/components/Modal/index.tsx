@@ -21,16 +21,21 @@ function Modal({ isOpen, onClose, children, ...rest }: SocialModalProps) {
         <IconButton 
           variant="ghost"
           position="absolute"
-          right={6}
-          top={6}
-          w={38}
-          h={38}
+          right={[5, 6]}
+          top={[5, 6]}
+          w={[6, 38]}
+          h={[6, 38]}
+          minW={6}
           bg="primary.500"
           aria-label="close-media-modal" 
           icon={<AiOutlineClose/>} 
           onClick={onClose}
           color="white"
-          {...boxShadow(true)}
+          {...boxShadow()}
+          _hover={{
+            color: "primary.500",
+            bg: "primary.200"
+          }}
         />
         <ModalBody p={0} my="auto">
           { children}

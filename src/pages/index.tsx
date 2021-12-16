@@ -194,6 +194,6 @@ export const getStaticProps: GetStaticProps = async() => {
       },
       repos,
     } as HomeProps,
-    revalidate: 1000 * 60 * 60 * 24 //A cada 24 horas atualiza os dados
+    revalidate: 60 * 60 * 24 //A cada 24 horas atualiza os dados
   };
 };

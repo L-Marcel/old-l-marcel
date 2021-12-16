@@ -31,7 +31,7 @@ function SocialModal({ isOpen, onClose, socialLinks, cvLink }: SocialModalProps)
         bgRepeat="no-repeat"
         alignItems="flex-start"
         spacing={4}
-        p={6}
+        p={[5, 6]}
         bgSize="cover"
       >
         {
