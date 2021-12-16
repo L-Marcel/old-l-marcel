@@ -7,8 +7,9 @@
     "HTML",
     "CSS"
   ],
+  "pinned": true,
   "links": {
-    "self": "",
+    "self": "https://l-marcel.vercel.app/",
     "figma": ""
   }
 }

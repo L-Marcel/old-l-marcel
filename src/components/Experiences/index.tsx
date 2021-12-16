@@ -1,17 +1,20 @@
 import { VStack } from "@chakra-ui/react";
-import useUser from "../../hooks/useUser";
+
 import { getProgressMessage } from "../../utils/getProgressMessage";
+
 import Container from "../Container";
 import ExperienceItem from "./ExperienceItem";
 
-function Experiences() {
-  const { user } = useUser();
+interface ExperiencesProps {
+  technologies: Technology[];
+};
 
+function Experiences({ technologies }: ExperiencesProps) {
   return (
     <Container withAccordion startOpen={false} accordionTitle="Experiências">
       <VStack mt={4}>
         {
-          user?.technologies.map(technology => {
+          technologies.map(technology => {
             return (
               <ExperienceItem 
                 key={`${technology.name}-${technology.points}`}

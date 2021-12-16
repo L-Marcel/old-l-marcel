@@ -27,7 +27,7 @@ export const theme = extendTheme({
         mr: -2
       },
       "::-webkit-scrollbar-track": {
-        background: colors.primary[100],
+        background: colors.primary[300],
         ...boxShadow()
       },
       "::-webkit-scrollbar-thumb": {
@@ -54,11 +54,10 @@ export const theme = extendTheme({
       ".primary-progressbar > div[role='progressbar']": {
         bg: colors.primary[500]
       },
-      ".js-focus-visible :focus:not([data-focus-visible-added])": {
-        outline: "none"
+      "*:focus": {
+        boxShadow: "none !important"
       },
       "input:focus": {
-        border: "none",
         boxShadow: "none !important"
       },
     }

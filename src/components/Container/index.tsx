@@ -1,5 +1,6 @@
 import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, BoxProps } from "@chakra-ui/react";
-import { bgEffect } from "../../theme/effects/bg";
+
+import { bg } from "../../theme/effects/bg";
 
 interface ContainerProps extends BoxProps {
   withAccordion?: boolean;
@@ -23,7 +24,7 @@ function Container({
   if(!withAccordion) {
     return (
       <Box
-        {...bgEffect({ hoverEffect, cursorPointer, stickyMode }) as any}
+        {...bg({ hoverEffect, cursorPointer, stickyMode }) as any}
         mb={[30, 50]}
         p={30}
         w={["auto", "auto", "auto", 380]}
@@ -36,7 +37,7 @@ function Container({
 
   return (
     <Box
-      {...bgEffect({ hoverEffect }) as any}
+      {...bg({ hoverEffect }) as any}
       mb={[30, 50]}
       p={30}
       w={["auto", "auto", "auto", 380]}

@@ -1,14 +1,25 @@
-import { Heading, HStack, SimpleGrid, Text, useToast } from "@chakra-ui/react";
-import { memo } from "react";
-import useFilteredRepositories from "../../hooks/useFilteredRepositories";
-import Container from "../Container";
-import { customToast } from "../CustomToast";
-import Icon from "../Icon";
+import { SimpleGrid } from "@chakra-ui/react";
+import { useCallback } from "react";
 
-function _RepositoriesList() {
-  const toast = useToast();
+import useFilteredRepositories from "../../hooks/useFilteredRepositories";
+
+import BlankResult from "../BlankResult";
+import RepositoryItem from "./RepositoryItem";
+
+function RepositoriesList() {
   const { filteredRepositories } = useFilteredRepositories();
-  
+  const qtd = filteredRepositories.length;
+
+  const onClickInItem = useCallback((repo: Repository) => {
+    //
+  }, []);
+
+  if(qtd <= 0) {
+    return (
+      <BlankResult message="Nenhum repositório encontrado"/>
+    );
+  };
+
   return (
     <SimpleGrid
       columns={[1, 1, 2, 2, 2, 2]}
@@ -18,42 +29,10 @@ function _RepositoriesList() {
       {
         filteredRepositories.map(repo => {
           return (
-            <Container
-              key={repo.id}
-              w="100%"
-              mb={0}
-              h="min-content"
-              textTransform="capitalize"
-              display="flex"
-              flexDir="column"
-              hoverEffect
-              cursorPointer
-              onClick={() => {
-                const id = 'comming-soon';
-                if(!toast.isActive(id)){
-                  toast(customToast(id, "Essa função se encontra em produção!", "info"));
-                };
-              }}
-            >
-              <Heading
-                fontSize={[14, 16]}
-                lineHeight={[5, 6]}
-                color="primary.500"
-              >
-                {repo.formattedName}
-              </Heading>
-              <Text 
-                textTransform="none"
-                fontSize={14}
-                maxW="90%"
-              >
-                {repo.description?.slice(0, 156)}{repo.description?.length > 156 && "..."}
-              </Text>
-              <HStack mt={2} color="primary.500">
-                <Icon name={repo.importedConfig.technologies[0]} w={6} h={6}/>
-                <Text fontSize={[12, 15]}> {'->'} {repo.importedConfig.technologies[0]}</Text>
-              </HStack>
-            </Container>
+            <RepositoryItem 
+              key={repo.id} 
+              repo={repo}
+            />
           );
         })
       }
@@ -61,6 +40,4 @@ function _RepositoriesList() {
   );
 };
 
-export const RepositoriesList = memo(_RepositoriesList, (prevProps, nextProps) => {
-  return Object.is(prevProps, nextProps);
-});
+export default RepositoriesList;

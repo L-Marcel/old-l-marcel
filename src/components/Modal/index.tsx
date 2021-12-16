@@ -13,7 +13,7 @@ function Modal({ isOpen, onClose, children, ...rest }: SocialModalProps) {
   return (
     <ChakraModal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay/>
-      <ModalContent {...rest}>
+      <ModalContent {...rest} my={[null, "auto"]}>
         <IconButton 
           variant="ghost"
           position="absolute"

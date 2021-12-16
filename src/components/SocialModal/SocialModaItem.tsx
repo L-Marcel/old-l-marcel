@@ -1,13 +1,13 @@
 import { Button, ButtonProps, useToast } from "@chakra-ui/react";
 import { boxShadow } from "../../theme/effects/shadow";
 import { customToast } from "../CustomToast";
+
 import SocialModalButtonIcon from "./SocialModalButtonIcon";
 import SocialModalButtonText from "./SocialModalButtonText";
 
 interface SocialModalButtonProps {
   link: string;
   media: string;
-  onChangeTarget: () => void;
   type?: "link" | "copy";
 };
 
@@ -17,7 +17,7 @@ const _ButtonProps: ButtonProps = {
   ...boxShadow(true)
 };
 
-function SocialModalItem({ link, media, type = "link", onChangeTarget }: SocialModalButtonProps) {
+function SocialModalItem({ link, media, type = "link" }: SocialModalButtonProps) {
   const toast = useToast();
 
   function handleCopy() {
@@ -35,7 +35,6 @@ function SocialModalItem({ link, media, type = "link", onChangeTarget }: SocialM
       <Button
         {..._ButtonProps}
         onClick={handleCopy}
-        onMouseEnter={onChangeTarget}
       >
         <SocialModalButtonIcon name={media}/>
         <SocialModalButtonText>
@@ -49,7 +48,6 @@ function SocialModalItem({ link, media, type = "link", onChangeTarget }: SocialM
     <a href={link} target="_blank" rel="noopener noreferrer">
       <Button
         textTransform="capitalize"
-        onMouseEnter={onChangeTarget}
         {..._ButtonProps}
       >
         <SocialModalButtonIcon name={media}/>

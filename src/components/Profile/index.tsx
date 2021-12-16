@@ -1,25 +1,27 @@
 import { Avatar, Heading, HStack, Text, VStack } from "@chakra-ui/react";
 import { boxShadow } from "../../theme/effects/shadow";
+
 import Container from "../Container";
-import useUser from "../../hooks/useUser";
 
 interface ProfileProps {
   isWideOrNormalVersion: boolean;
+  username: string;
+  fullname: string;
+  name: string;
+  avatar: string;
 };
 
-function Profile({ isWideOrNormalVersion }: ProfileProps) {
-  const { user } = useUser();
-
+function Profile({ isWideOrNormalVersion, username, fullname, name, avatar }: ProfileProps) {
   return (
     <Container mb={15}>
       <HStack spacing={[3, 5]}>
         <Avatar
-          name={user.fullname} 
+          name={fullname} 
           size={ isWideOrNormalVersion? "lg":"md" } 
           borderWidth={2}
           borderStyle="solid"
           borderColor="primary.500"
-          src={user.avatar}
+          src={avatar}
           { ...boxShadow() }
         />
         <VStack spacing={0.1} alignItems="flex-start">
@@ -28,19 +30,19 @@ function Profile({ isWideOrNormalVersion }: ProfileProps) {
             color="primary.500"
             lineHeight={1}
           >
-            {user.name}
+            {name}
           </Heading>
           { isWideOrNormalVersion && <Text
             fontSize={[14, 16]}
             color="black"
           >
-            {user.fullname}
+            {fullname}
           </Text> }
           <Text
             fontSize={[12, 14]}
             color="primary.500"
           >
-            @{user.username}
+            @{username}
           </Text>
         </VStack>
       </HStack>

@@ -1,20 +1,23 @@
-import { Box, Flex, Stack, useBreakpointValue } from "@chakra-ui/react";
+import { Flex, Stack, useBreakpointValue } from "@chakra-ui/react";
+import { GetStaticProps } from "next";
+import RepositoriesList from "../components/RepositoriesList";
+import { RichText } from "prismic-dom";
+
+import { api } from "../services/api";
+import { getPrismicClient } from "../services/prismic";
+import { getGithubRepos } from "../services/github";
+import { getPointsOfTecnology } from "../utils/getPointsOfTecnology";
+
+import { useEffect } from "react";
+import useRepositories from "../hooks/useRepositories";
+import useUser from "../hooks/useUser";import Head from "next/head";
+
+import Search from "../components/Search";
+import ActionButtonsGroup from "../components/ActionButtonsGroup";
 import AboutMe from "../components/AboutMe";
 import Profile from "../components/Profile";
 import Experiences from "../components/Experiences";
 import Qualities from "../components/Personality";
-import { RepositoriesList } from "../components/RepositoriesList";
-import Search from "../components/Search";
-import { GetStaticProps } from "next";
-import { getPrismicClient } from "../services/prismic";
-import { RichText } from "prismic-dom";
-import { api } from "../services/api";
-import { getGithubRepos } from "../services/github";
-import useRepositories from "../hooks/useRepositories";
-import { useEffect } from "react";
-import { getPointsOfTecnology } from "../utils/getPointsOfTecnology";
-import useUser from "../hooks/useUser";import Head from "next/head";
-import ExperienceButtons from "../components/Experiences/ExperienceButtons";
 
 interface HomeProps {
   user: User;
@@ -33,11 +36,11 @@ export default function Home({ user, repos }: HomeProps) {
   useEffect(() => {
     setRepositories(repos);
     setUser(user);
-  }, [repos, user]);
+  }, [repos, user, setRepositories, setUser]);
 
   const orderedContainers = [
-    <Experiences key="experiences"/>,
-    <AboutMe key="about-me" w="100%"/>
+    <Experiences technologies={user.technologies} key="experiences"/>,
+    <AboutMe about={user.about} key="about-me" w="100%"/>
   ];
 
   return (
@@ -49,7 +52,7 @@ export default function Home({ user, repos }: HomeProps) {
         justifyContent="space-between"
         flexDir={["column", "column", "column", "row"]}
         h="100vh"
-        overflowX="auto"
+        overflowX="hidden"
         p={[30, 50]}
       >
         <Flex 
@@ -58,10 +61,14 @@ export default function Home({ user, repos }: HomeProps) {
         >
           <Profile
             isWideOrNormalVersion={isWideOrNormalVersion}
+            username={user.username}
+            fullname={user.fullname}
+            name={user.name}
+            avatar={user.avatar}
           />
-          <ExperienceButtons/>
+          <ActionButtonsGroup user={user}/>
           { orderedContainers[isWideOrNormalVersion? 0:1] }
-          <Qualities/>
+          <Qualities personality={user.personality}/>
         </Flex>
         <Flex flexDir="column"
           ml={[0, 0, 0, 50]}
@@ -86,7 +93,6 @@ export const getStaticProps: GetStaticProps = async() => {
     const socialLinks: SocialLink[] = media.map(sl => {
       return {
         name: sl.name,
-        background: sl.background.url,
         link: sl.link,
         type: sl.islink? "link":"copy",
       } as SocialLink;
@@ -106,7 +112,9 @@ export const getStaticProps: GetStaticProps = async() => {
       } as Formatter;
     });
     return formatters;
-  }).catch(() => []);
+  }).catch((err) => {
+    console.log(err);
+  });
 
   const user = await api.get("https://api.github.com/users/l-marcel").then(res => {
     const data = res.data;
@@ -123,7 +131,6 @@ export const getStaticProps: GetStaticProps = async() => {
       qtdRepos: data.public_repos,
       about: "",
       certificates: [],
-      historic: [],
       technologies: [],
       personality: []
     } as User;
@@ -137,9 +144,8 @@ export const getStaticProps: GetStaticProps = async() => {
   });
 
   const user_data = await prismic.getSingle("profile", {}).then(res => {
-    const about = RichText.asHtml(res.data.about
-      
-    ).replace(/\<pre\>/g, '<section><pre>')
+    const about = RichText.asHtml(res.data.about)
+    .replace(/\<pre\>/g, '<section><pre>')
     .replace(/\<\/pre>/g, '</section></pre>');
     const technologies: Technology[] = res.data.technology.map(technology => {
       const { 
@@ -175,7 +181,9 @@ export const getStaticProps: GetStaticProps = async() => {
       technologies,
       personality
     };
-  }).catch(() => {});
+  }).catch((err) => {
+    console.log(err);
+  });
 
   return {
     props: {

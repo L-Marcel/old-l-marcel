@@ -14,8 +14,6 @@ import { IoIosRocket, IoLogoJavascript } from "react-icons/io";
 import { FiDownload } from "react-icons/fi";
 import { GrNode } from "react-icons/gr";
 import { VscTerminalPowershell } from "react-icons/vsc";
-import { infinityRotate } from "../../theme/animations/rotate";
-
 interface IconProps extends ChakraIconProps {
   name?: string;
 };
@@ -25,6 +23,7 @@ const icons = {
   "node.js": GrNode,
   "typescript": SiTypescript,
   "next.js": SiNextdotjs,
+  "react native": FaReact,
   "html": AiFillHtml5,
   "css": DiCss3,
   "sass": DiSass,
@@ -59,7 +58,6 @@ function Icon({ name = "default", ...rest }: IconProps) {
   return (
     <ChakraIcon
       as={icon}
-      { ..._name === "react.js"? infinityRotate():null } //o filho predileto
       {...rest}
     />
   );

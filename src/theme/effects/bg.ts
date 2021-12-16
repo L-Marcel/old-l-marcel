@@ -7,7 +7,7 @@ interface BgOptions extends BoxProps {
   stickyMode?: boolean;
 };
 
-function bgEffect({ 
+function bg({ 
   bg = "white", 
   opacity = 0.6, 
   hoverEffect = false, 
@@ -40,4 +40,4 @@ function bgEffect({
   };
 };
 
-export { bgEffect };
+export { bg };

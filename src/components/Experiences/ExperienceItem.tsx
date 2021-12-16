@@ -1,7 +1,8 @@
 import { HStack, Progress, Tooltip } from "@chakra-ui/react";
+
 import { boxShadow } from "../../theme/effects/shadow";
 import { getColorPointsBreakpoint } from "../../utils/getColorPointsBreakpoint";
-import { getProgressMessage } from "../../utils/getProgressMessage";
+
 import Icon from "../Icon";
 
 interface ExperienceItemProps {

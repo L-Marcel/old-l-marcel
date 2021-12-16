@@ -1,5 +1,5 @@
 import { VStack } from "@chakra-ui/react";
-import { useState } from "react";
+
 import Modal from "../Modal";
 import SocialModalItem from "./SocialModaItem";
 
@@ -11,27 +11,18 @@ interface SocialModalProps {
 };
 
 function SocialModal({ isOpen, onClose, socialLinks, cvLink }: SocialModalProps) {
-  const defaultImage = socialLinks.length > 0 ? socialLinks[0].background ?? "":"";
-  const [image, setImage] = useState(defaultImage);
   const firstLinks = socialLinks.slice(0, 4);
   const links = socialLinks.slice(4, socialLinks.length);
   const needFooter = links.length > 6 || cvLink;
 
-  function updateBackgroundImage(image: string) {
-    const _image = new Image();
-    _image.src = image;
-    _image.onload = () => {
-      setImage(image);
-    };
-  };
-
   return (
-    <Modal 
+    <Modal
+      borderRadius={8}
       isOpen={isOpen} 
       onClose={onClose}
       minH={needFooter? 0:"auto"}
       position="relative"
-      bgImage="social_modal_bg_image.svg"
+      bgImage="/social_modal_footer_bg.png"
       bgSize="initial"
       bgPos="85px max(50% + 200px, 100% + 65px)"
       bgColor="primary.100"
@@ -46,14 +37,14 @@ function SocialModal({ isOpen, onClose, socialLinks, cvLink }: SocialModalProps)
         alignItems="flex-start"
         spacing={4}
         p={6}
-        bgImage={image}
+        bgImage="/social_modal_bg.jpg"
+        bgSize="cover"
       >
         {
           firstLinks.map(s => {
             return (
               <SocialModalItem
                 key={s.name}
-                onChangeTarget={() => updateBackgroundImage(s.background)}
                 link={s.link} 
                 media={s.name}
                 type={s.type}
@@ -72,7 +63,6 @@ function SocialModal({ isOpen, onClose, socialLinks, cvLink }: SocialModalProps)
             return (
               <SocialModalItem
                 key={s.name}
-                onChangeTarget={() => setImage(s.background)}
                 link={s.link} 
                 media={s.name} 
                 type={s.type}
@@ -81,7 +71,6 @@ function SocialModal({ isOpen, onClose, socialLinks, cvLink }: SocialModalProps)
           })
         }
         { cvLink && <SocialModalItem
-          onChangeTarget={() => {}}
           link={cvLink} 
           media="Currículo Virtual"
         /> }

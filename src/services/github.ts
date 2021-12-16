@@ -32,7 +32,6 @@ async function getGithubRepos(url: string, {
     for(let i in repos) {
       let config: Config = await api.get(`https://raw.githubusercontent.com/${repos[i].fullname}/${repos[i].branch}/l-marcel.config.json`)
       .then(config => config.data).catch(() => null);
-
       config = {
         name: repos[i].name,
         icon: repos[i].language,
@@ -58,6 +57,14 @@ async function getGithubRepos(url: string, {
 
       if(haveTypeScript && notHaveJavaScript) {
         config.technologies.push("JavaScript");
+      };
+
+
+      let badges = repos[i].description?.match(/\[+.+\]/g);
+    
+      if(badges) {
+        repos[i].badge = badges[0].replace(/\[/g, "").replace(/\]/g, "");
+        repos[i].description = repos[i].description.replace(/\[+.+\]/g, "");
       };
 
       repos[i].importedConfig = config;

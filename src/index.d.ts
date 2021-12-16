@@ -1,6 +1,5 @@
 declare type SocialLink = {
   name: string;
-  background: string;
   link: string;
   type: "link" | "copy"
 };
@@ -15,10 +14,6 @@ declare type Technology = {
   useWithFrequency: boolean;
   time: string;
   points: number;
-};
-
-declare type HistoricEvent = {
-
 };
 
 declare type Certificate = {
@@ -38,7 +33,6 @@ declare type User = {
   reposUrl: string;
   qtdRepos: number;
   technologies: Technology[];
-  historic: HistoricEvent[];
   certificates: Ceriticate[];
   personality: Personality[];
   links: SocialLink[];
@@ -57,6 +51,7 @@ declare type Repository = {
   language: string;
   branch: string;
   importedConfig?: Config;
+  badge?: string;
 };
 
 declare type Config = {
@@ -68,6 +63,11 @@ declare type Config = {
   };
 };
 
+declare type RepositoryBadge = {
+  text: string;
+  color: string;
+};
+
 declare type RepositoriesFilterOptions = {
   minLevelOfExperienceWithTechnology: number;
   technologies: string[];
@@ -75,11 +75,11 @@ declare type RepositoriesFilterOptions = {
   with: {
     description: boolean;
     figmaLink: boolean;
-    _skip: boolean;
+    skip: boolean;
   };
   is: {
     fork: boolean;
-    _skip: boolean;
+    skip: boolean;
   };
 };
 

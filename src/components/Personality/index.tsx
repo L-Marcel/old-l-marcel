@@ -1,12 +1,15 @@
 import { Divider, List } from "@chakra-ui/react";
-import useUser from "../../hooks/useUser";
-import Container from "../Container";
-import PersonalityItem from "./PersonalityItem";
 
-function Personality() {
-  const { user } = useUser();
-  const qualities = user.personality.filter(p => p.type === "quality");
-  const defects = user.personality.filter(p => p.type === "defect");
+import PersonalityItem from "./PersonalityItem";
+import Container from "../Container";
+
+interface PersonalityProps {
+  personality: Personality[];
+};
+
+function Personality({ personality }: PersonalityProps) {
+  const qualities = personality.filter(p => p.type === "quality");
+  const defects = personality.filter(p => p.type === "defect");
 
   return (
     <Container withAccordion accordionTitle="Qualidades e defeitos">

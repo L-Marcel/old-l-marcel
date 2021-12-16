@@ -13,7 +13,6 @@ function AppProvider({ children }: AppProviderProps) {
     avatar: "",
     certificates: [],
     fullname: "",
-    historic: [],
     name: "",
     personality: [],
     qtdRepos: 0,
@@ -27,12 +26,12 @@ function AppProvider({ children }: AppProviderProps) {
   const [filteredRepositories, setFilteredRepositories] = useState<Repository[]>([]);
   const [filterOptions, setFilterOptions] = useState<RepositoriesFilterOptions>({
     with: {
-      _skip: true,
+      skip: true,
       description: false,
       figmaLink: false,
     },
     is: {
-      _skip: true,
+      skip: true,
       fork: false,
     },
     minLevelOfExperienceWithTechnology: 0,
@@ -65,7 +64,7 @@ function AppProvider({ children }: AppProviderProps) {
     let repos = repositories;
 
     //with
-    if(filterOptions.with._skip) {
+    if(!filterOptions.with.skip) {
       const { description, figmaLink } = filterOptions.with;
       repos = repos.filter(r => {
         const a = r.description || !description;
@@ -86,7 +85,7 @@ function AppProvider({ children }: AppProviderProps) {
     };
 
     //is
-    if(filterOptions.is._skip) {
+    if(!filterOptions.is.skip) {
       const { fork } = filterOptions.is;
       repos = repos.filter(r => {
         return r.fork || !fork;

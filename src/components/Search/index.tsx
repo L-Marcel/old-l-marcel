@@ -1,6 +1,8 @@
 import { HStack, Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { FaSearch } from "react-icons/fa";
+
 import useFilterOptions from "../../hooks/useFilterOptions";
+
 import Container from "../Container";
 
 function Search() {
@@ -23,7 +25,7 @@ function Search() {
       zIndex={30}
     >
       <Container
-        maxW={["auto", 250, 300, 300]}
+        maxW={["auto", 250, 300, 400]}
         p={0}
         color="primary.500"
         hoverEffect
