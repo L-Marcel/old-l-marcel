@@ -51,6 +51,7 @@ function RepositoryModal({ isOpen, onClose, repo }: RepositoryProps) {
           spacing={[0, 5]}
           my={5}
           zIndex={5}
+          isAttached
           { ...boxShadow() }
         >
           { repo.github && <RepositoryModalLinkButton
@@ -63,6 +64,7 @@ function RepositoryModal({ isOpen, onClose, repo }: RepositoryProps) {
             link={repo.importedConfig.links?.self} title="Visitar" icon="self"
           /> }
         </ButtonGroup>
+        { repo.license && <h1>{repo.license.id}</h1>}
       </Box>
     </Modal>
   );

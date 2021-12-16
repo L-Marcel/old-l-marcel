@@ -1,5 +1,5 @@
-import { Button } from "@chakra-ui/react";
-import Icon from "../Icon";
+
+import Button from "../Button";
 
 interface RepositoryModalLinkButtonProps {
   link: string;
@@ -13,18 +13,13 @@ function RepositoryModalLinkButton({
   icon
 }: RepositoryModalLinkButtonProps) {
   return (
-    <a href={link} target="_blank" rel="noopener noreferrer">
-      <Button
-        aria-label="share"
-        transition="filter .2s linear"
-        leftIcon={<Icon name={icon}/>}
-        size="md"
-        bg="primary.200"
-        color="primary.500"
-      >
-        {title}
-      </Button>
-    </a>
+    <Button
+      aria-label="share"
+      icon={icon}
+      link={link}
+    >
+      {title}
+    </Button>
   );
 };
 

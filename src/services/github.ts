@@ -26,7 +26,11 @@ async function getGithubRepos(url: string, {
         url: repo.url,
         github: repo.svn_url,
         language: repo.language,
-        branch: repo.default_branch
+        branch: repo.default_branch,
+        license: repo.license? { 
+          id: repo.license.spdx_id,
+          url: repo.license.url
+        }:null,
       } as Repository;
     });
 

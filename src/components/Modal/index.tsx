@@ -21,7 +21,7 @@ function Modal({ isOpen, onClose, children, ...rest }: SocialModalProps) {
           top={6}
           w={38}
           h={38}
-          bg="primary.200" 
+          bg="primary.400" 
           aria-label="close-media-modal" 
           icon={<AiOutlineClose/>} 
           onClick={onClose}

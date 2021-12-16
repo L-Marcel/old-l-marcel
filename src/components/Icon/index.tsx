@@ -11,7 +11,7 @@ import { BsQuestionCircle, BsCheck2Circle, BsInstagram, BsFillShareFill } from "
 import { AiOutlineCalendar, AiOutlineCheck, AiOutlineInfoCircle } from "react-icons/ai";
 import { BiError } from "react-icons/bi";
 import { IoIosRocket, IoLogoJavascript } from "react-icons/io";
-import { FiDownload } from "react-icons/fi";
+import { FiDownload, FiFigma, FiPaperclip } from "react-icons/fi";
 import { GrNode } from "react-icons/gr";
 import { VscTerminalPowershell } from "react-icons/vsc";
 interface IconProps extends ChakraIconProps {
@@ -49,7 +49,9 @@ const icons = {
   "youtube": AiFillYoutube,
   "currículo virtual": FiDownload,
   "shell": VscTerminalPowershell,
-  "share": BsFillShareFill
+  "share": BsFillShareFill,
+  "figma": FiFigma,
+  "self": FiPaperclip
 };
 
 function Icon({ name = "default", ...rest }: IconProps) {
