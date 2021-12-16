@@ -61,6 +61,7 @@ async function getGithubRepos(url: string, {
         config.technologies.push("JavaScript");
       };
 
+      config.technologies = Array.from(new Set(config.technologies)) as string[];
 
       let badges = repos[i].description?.match(/\[+.+\]/g);
     

@@ -56,7 +56,7 @@ function RepositoryModal({ isOpen, onClose, repo }: RepositoryProps) {
           {
             repo.importedConfig?.technologies?.map(technology => {
               return (
-                <Icon color="primary.500" mr={2} mt={2} name={technology} w={6} h={6}/>
+                <Icon key={technology} color="primary.500" mr={2} mt={2} name={technology} w={6} h={6}/>
               );
             })
           }
