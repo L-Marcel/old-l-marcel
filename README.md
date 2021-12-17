@@ -1,44 +1,52 @@
-<div align="center">
-  <table>
-    <tbody>
-      <tr>
-        <td>
-          <a href="#">English</a>
-        </td>
-        <td>
-          <a href="https://github.com/L-Marcel/L-Marcel/blob/main/README.ptbr.md">Português</a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<h1>👋 Hello! I'm Lucas Marcel.</h1>
+<h1>👋 Olá! Me chamo Lucas Marcel.</h1>
 <img src="https://github.com/L-Marcel/L-Marcel/blob/main/public/banner.gif" alt="banner">
 
-<h3>I'm currently...</h3>
+Tenho experiência na área da Ciência da Computação, com ênfase em Informática. Estou cursando o último ano do ensino Técnico Integrado em Informática no Instituto Federal e tenho experiência com: 
+
+<pre>
+JavaScript, TypeScript, Python, Java, HTML, CSS, SASS, Shell
+-----------------------------------------------------
+React.js, Node.js, Next.js
+</pre>
+
+Dei início ao desenvolvimento Full-Stack com foco em aplicações web feitas em React.js e APIs RESTful construídas em Node.js, contudo, meu objetivo atual é apenas se especializar como desenvolvedor Front-End. Recentemente conclui a trilha do React.js do curso Ignite, ofertado pela Rocketseat. Já fiz uso da metodologia ágil SCRUM e também possuo conhecimento prático e teórico na área de montagem e manutenção de computadores, entretanto, sou mais apto ao ramo da programação.
+
+Procuro me manter atualizado sobre as tecnologias que utilizo constantemente, adoro aprender coisas novas, costumo ser pontual e quando estou empolgado em resolver um problema nada me para!
+
+<h3>Eu atualmente...</h3>
 
 <div style="justify-content: space-between">
   <ul width="40%">
-    <li><p>🔍 searching a <code>working opportunity</code>;</p></li>
-    <li><p>🌱 learning <code>front-end</code> development with <code>React</code> and <code>Typescript</code>;</p></li>
-    <li><p>🤝 looking to collaborate on projects in the area of education and communication;</p></li>
-    <li><p>🤔 seeking for help to up my <code>soft skills</code>.</p></li>
+    <li><p>🔍 pesquiso por <code>oportunidades de emprego</code>;</p></li>
+    <li><p>🔍 uso muito o <code>Discord</code>;</p></li>
+    <li><p>🌱 estudo desenvolvimento <code>front-end</code> com <code>Next.js</code>, <code>React.js</code> e <code>Typescript</code>;</p></li>
+    <li><p>🤝 procuro colaborar com projetos da área da educação e comunicação, mas estou totalmente aberto a outras propostas;</p></li>
+    <li><p>🤔 gostaria de melhorar minhas <code>Soft Skills</code>.</p></li>
   </ul>
 </div>
 
-<h3>You can...</h3>
+<h3>Você pode...</h3>
 <div>
   <ul>
-    <li><p>👤 call me: <code>Marcel</code>;</p></li>
-    <li><p>💬 ask me about: <code>[React, Javascript, Typescript, Node and Git]</code>;</p></li>
-    <li><p>😄 use this pronouns: him/his;</p></li>
-    <li><p>⚡ know this fun fact: my first real profile photo is very it's funny.</p></li>
+    <li><p>👤 me chamar de: <code>Marcel</code>;</p></li>
+    <li>
+      <p>💬 me perguntar sobre:;</p>
+      <ul>
+        <li><p>Linguagens e tecnologias: Next.js, React.js, JavaScript, TypeScript, Node.js, Git, HTTML, CSS e SASS;</p></li>
+        <li><p>Metodologias e práticas: SCRUM, deploy da aplicação, otimização, boas práticas e idealização do produto;</p></li>
+        <li><p>Conceitos: Server Side Rendering (SSR), Single Page Application (SPA), Static Site Generation (SSG), Client Side Rendering (CSR) e Application Interface Programing (API);</p></li>
+        <li><p>Infraestrutura de redes: Domain Name Service (DNS), Hypertext Transfer Protocol (HTTP), HTTPS, SSH, comunicação entre servidores, escalabilidade e tolerância a falhas.</p></li>
+        <li><p>Jogos: RPG, MOBA, MMORPG, tabuleiro e cartas;</p></li>
+        <li><p>Anime: One Piece, de preferência.</p></li>
+      </ul>
+    </li>
+    <li><p>😄 user esses pronomes: ele/dele;</p></li>
+    <li><p>⚡ descobrir este fato curioso: minha primeira foto de perfil real é muito engraçada.</p></li>
   </ul>
 </div>
 <br/>
 
-<h2 align="center">More about my profissional profile:</h2>
+<h2 align="center">Mais sobre meu perfil profissional:</h2>
 
 <div align="center">
   <a href="https://www.linkedin.com/in/l-marcel/"><img alt="linkedin" src="https://img.shields.io/badge/-LINKEDIN-brightgreen?logoColor=ffffff&style=for-the-badge&logo=linkedin&color=0A66C2"/></a>

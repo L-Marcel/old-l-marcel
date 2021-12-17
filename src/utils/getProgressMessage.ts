@@ -4,7 +4,7 @@ function getProgressMessage(tc: Technology) {
   } else if(tc.points > 65) {
     return "Capaz de liderar projetos";
   } else if(tc.points > 45 && tc.haveProjects && tc.haveExperience && tc.useWithFrequency) {
-    return "Habiatuado a concluir projetos";;
+    return "Habituado a concluir projetos";;
   } else if(tc.points > 35) {
     return "Capaz de realizar projetos";
   } else if(tc.points > 25 && tc.isStudying && tc.haveInterest) {

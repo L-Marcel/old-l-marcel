@@ -18,18 +18,18 @@ function AboutMe({ about, ...rest }: AboutMeProps) {
 
   return (
     <Container withAccordion accordionTitle="Um pouco sobre mim" {...rest}>
-      <Image
-        src="/banner.gif"
+      { isWideOrNormalVersion && <Image
+        src="/static_banner.png"
         width="100%"
-        maxH={300}
+        maxH={500}
         mb={4}
-      />
+      /> }
       <Box 
         whiteSpace="pre-wrap"
         mr={4}
         fontSize={[14, 16]}
         dangerouslySetInnerHTML={{ __html: about }}
-        className={styles.container}
+        className={`${styles.container} ${!isWideOrNormalVersion? styles.mobile:""}`}
       />
       <Box
         display="flex"
