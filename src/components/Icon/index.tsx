@@ -7,13 +7,14 @@ import { SiTypescript, SiNextdotjs, SiGnubash, SiDart } from "react-icons/si";
 import { DiCss3, DiSass } from "react-icons/di";
 import { AiFillHtml5, AiFillYoutube } from "react-icons/ai";
 import { RiFlutterFill, RiFilePaper2Line, RiFilter3Fill, RiFlashlightFill, RiFlashlightLine } from "react-icons/ri";
-import { BsQuestionCircle, BsCheck2Circle, BsInstagram, BsFillShareFill } from "react-icons/bs";
-import { AiOutlineCalendar, AiOutlineCheck, AiOutlineInfoCircle, AiOutlineClose } from "react-icons/ai";
+import { BsQuestionCircle, BsCheck2Circle, BsInstagram } from "react-icons/bs";
+import { AiOutlineCalendar, AiOutlineCheck, AiOutlineInfoCircle, AiOutlineClose, AiFillSafetyCertificate } from "react-icons/ai";
 import { BiError } from "react-icons/bi";
 import { IoIosRocket, IoLogoJavascript } from "react-icons/io";
 import { FiDownload, FiFigma, FiPaperclip } from "react-icons/fi";
 import { GrNode } from "react-icons/gr";
 import { VscTerminalPowershell } from "react-icons/vsc";
+import { GiShare } from "react-icons/gi";
 interface IconProps extends ChakraIconProps {
   name?: string;
 };
@@ -49,7 +50,7 @@ export const icons = {
   "youtube": AiFillYoutube,
   "currículo virtual": FiDownload,
   "shell": VscTerminalPowershell,
-  "share": BsFillShareFill,
+  "share": GiShare,
   "figma": FiFigma,
   "self": FiPaperclip,
   "documentation": RiFilePaper2Line,
@@ -58,7 +59,8 @@ export const icons = {
   "close": AiOutlineClose,
   "filter": RiFilter3Fill,
   "flash": RiFlashlightFill,
-  "flash-off": RiFlashlightLine
+  "flash-off": RiFlashlightLine,
+  "certificate": AiFillSafetyCertificate
 };
 
 function Icon({ name = "default", ...rest }: IconProps) {

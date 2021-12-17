@@ -1,8 +1,7 @@
-import { ButtonGroup, useDisclosure, useToast } from "@chakra-ui/react";
+import { ButtonGroup, useDisclosure } from "@chakra-ui/react";
 
 import { boxShadow } from "../../theme/effects/shadow";
 import Button from "../Button";
-import { customToast } from "../CustomToast";
 
 import SocialModal from "../SocialModal";
 
@@ -11,7 +10,6 @@ interface ActionButtonsGroupProps {
 };
 
 function ActionButtonsGroup({ user }: ActionButtonsGroupProps) {
-  const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -40,12 +38,9 @@ function ActionButtonsGroup({ user }: ActionButtonsGroupProps) {
         </Button>
         <Button 
           aria-label="certificates"
-          icon="check"
+          icon="certificate"
           onClick={() => {
-            const id = 'comming-soon';
-            if(!toast.isActive(id)){
-              toast(customToast(id, "Essa função se encontra em produção!", "info"));
-            };
+  
           }}
         >
           Certificados

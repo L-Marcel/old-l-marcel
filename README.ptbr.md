@@ -38,7 +38,7 @@
 </div>
 <br/>
 
-<h2 align="center">Mais sobre meu perfil profisional:</h2>
+<h2 align="center">Mais sobre meu perfil profissional:</h2>
 
 <div align="center">
   <a href="https://www.linkedin.com/in/l-marcel/"><img alt="linkedin" src="https://img.shields.io/badge/-LINKEDIN-brightgreen?logoColor=ffffff&style=for-the-badge&logo=linkedin&color=0A66C2"/></a>

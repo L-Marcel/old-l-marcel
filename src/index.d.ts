@@ -17,7 +17,12 @@ declare type Technology = {
 };
 
 declare type Certificate = {
-
+  name: string;
+  issuingOrganization: string;
+  issuedIn: string;
+  expiresIn?: string;
+  code?: string;
+  url?: string;
 };
 
 declare type Personality = {

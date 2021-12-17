@@ -18,6 +18,7 @@ import AboutMe from "../components/AboutMe";
 import Profile from "../components/Profile";
 import Experiences from "../components/Experiences";
 import Qualities from "../components/Personality";
+import { getFormattedDate } from "../utils/getFormattedDate";
 
 interface HomeProps {
   user: User;
@@ -176,13 +177,26 @@ export const getStaticProps: GetStaticProps = async() => {
       return _tecnology;
     });
     const personality: Personality[] = res.data.personality;
+    const certificate: Certificate[] = res.data.certificate.map(certificate => {
+      return {
+        name: certificate.name,
+        issuingOrganization: certificate.issuing_organization,
+        issuedIn: getFormattedDate(certificate.issued_in),
+        expiresIn: certificate.expires_in? getFormattedDate(certificate.expires_in):null,
+        code: certificate.code,
+        url: certificate.url
+      } as Certificate;
+    })
+
     return {
       about,
       technologies,
-      personality
+      personality,
+      certificate
     };
   }).catch((err) => {
     console.log(err);
+    return {};
   });
 
   return {
