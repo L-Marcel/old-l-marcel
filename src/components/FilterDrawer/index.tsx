@@ -55,7 +55,8 @@ function FilterDrawer({ onClose, isOpen }: FilterDrawerProps) {
         <CloseButton aria-label="close-drawer-button" onClick={onClose}/>
         <DrawerHeader 
           py="0 !important"
-          fontSize={[20, 25]}
+          mt={2}
+          fontSize={25}
           color="primary.500"
         >
           Filtrar repositórios
