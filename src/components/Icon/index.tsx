@@ -3,12 +3,12 @@ import {
   FaReact, FaLinkedinIn, FaGithubAlt, FaDocker, FaGitAlt, 
   FaJava, FaPython, FaDiscord, FaFacebookF, FaBalanceScale
 } from "react-icons/fa";
-import { SiTypescript, SiNextdotjs, SiGnubash } from "react-icons/si";
+import { SiTypescript, SiNextdotjs, SiGnubash, SiDart } from "react-icons/si";
 import { DiCss3, DiSass } from "react-icons/di";
 import { AiFillHtml5, AiFillYoutube } from "react-icons/ai";
-import { RiFlutterFill, RiFilePaper2Line } from "react-icons/ri";
+import { RiFlutterFill, RiFilePaper2Line, RiFilter3Fill, RiFlashlightFill, RiFlashlightLine } from "react-icons/ri";
 import { BsQuestionCircle, BsCheck2Circle, BsInstagram, BsFillShareFill } from "react-icons/bs";
-import { AiOutlineCalendar, AiOutlineCheck, AiOutlineInfoCircle } from "react-icons/ai";
+import { AiOutlineCalendar, AiOutlineCheck, AiOutlineInfoCircle, AiOutlineClose } from "react-icons/ai";
 import { BiError } from "react-icons/bi";
 import { IoIosRocket, IoLogoJavascript } from "react-icons/io";
 import { FiDownload, FiFigma, FiPaperclip } from "react-icons/fi";
@@ -18,7 +18,7 @@ interface IconProps extends ChakraIconProps {
   name?: string;
 };
 
-const icons = {
+export const icons = {
   "react.js": FaReact,
   "node.js": GrNode,
   "typescript": SiTypescript,
@@ -53,7 +53,12 @@ const icons = {
   "figma": FiFigma,
   "self": FiPaperclip,
   "documentation": RiFilePaper2Line,
-  "license": FaBalanceScale
+  "license": FaBalanceScale,
+  "dart": SiDart,
+  "close": AiOutlineClose,
+  "filter": RiFilter3Fill,
+  "flash": RiFlashlightFill,
+  "flash-off": RiFlashlightLine
 };
 
 function Icon({ name = "default", ...rest }: IconProps) {

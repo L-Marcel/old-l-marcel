@@ -22,7 +22,8 @@ function ExperienceItem({ name, message, progress = 0 }: ExperienceItemProps) {
     <Tooltip 
       hasArrow 
       arrowSize={10}
-      bg="primary.400"
+      bg="primary.500"
+      placement="top-end"
       label={`${name} -> ${message}`}
       { ...boxShadow() }
     >

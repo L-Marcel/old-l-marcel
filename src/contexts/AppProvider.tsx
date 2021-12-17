@@ -1,5 +1,6 @@
 import { ReactNode, useCallback, useEffect, useState } from "react";
 import { createContext } from "use-context-selector";
+import { filterRepositories } from "../utils/filterRepositories";
 
 interface AppProviderProps {
   children: ReactNode;
@@ -26,17 +27,19 @@ function AppProvider({ children }: AppProviderProps) {
   const [filteredRepositories, setFilteredRepositories] = useState<Repository[]>([]);
   const [filterOptions, setFilterOptions] = useState<RepositoriesFilterOptions>({
     with: {
-      skip: true,
+      some: false,
       description: false,
+      license: false,
       figmaLink: false,
     },
     is: {
-      skip: true,
+      some: false,
       fork: false,
     },
     minLevelOfExperienceWithTechnology: 0,
     technologies: [],
     query: "",
+    pinnedsFirst: true
   });
 
   const _setUser = useCallback((user: User) => {
@@ -55,74 +58,13 @@ function AppProvider({ children }: AppProviderProps) {
     setFilterOptions(f => {
       return {
         ...f,
-        technologies: user?.technologies.map(t => t.name) ?? []
+        technologies: user?.technologies.map(t => t.name.toLowerCase()) ?? []
       };
     });
   }, [user]);
 
   useEffect(() => {
-    let repos = repositories;
-
-    //with
-    if(!filterOptions.with.skip) {
-      const { description, figmaLink } = filterOptions.with;
-      repos = repos.filter(r => {
-        const a = r.description || !description;
-        let b = false;
-
-        try {
-          b = r.importedConfig.links["figma"] !== undefined;
-        } catch (error) {
-          b = !figmaLink;
-        }
-
-        if(a && b) {
-          return true;
-        };
-
-        return false;
-      });
-    };
-
-    //is
-    if(!filterOptions.is.skip) {
-      const { fork } = filterOptions.is;
-      repos = repos.filter(r => {
-        return r.fork || !fork;
-      });
-    };
-
-    // technologies: string[];
-    repos = repos.filter(r => {
-      return filterOptions.technologies.includes(r.importedConfig.technologies[0]);
-    });
-    
-    //minLevelOfExperienceWithTechnology
-    // const minLevel = filterOptions.minLevelOfExperienceWithTechnology;
-    // if(minLevel > 0) {
-    //   const userTechnologies = user.technologies; //Technology[]
-    //   repos = repos.filter(r => {
-    //     const reposTechnology = r.importedConfig.technologies[1];
-        
-    //     for(let i in userTechnologies) {
-    //       const technology = userTechnologies[i];
-    //       if(technology .level < minLevel && technology.name === reposTechnology) {
-    //         return false;
-    //       };
-    //     };
-        
-    //     return true;
-    //   });
-    // };
-
-    // query: string;
-    repos = repos.filter(r => {
-      return r.name.toLowerCase()
-      .match(filterOptions.query.toLowerCase()) ||
-      r.formattedName.toLowerCase()
-      .match(filterOptions.query.toLowerCase());
-    });
-
+    let repos = filterRepositories(repositories, filterOptions);
     setFilteredRepositories(repos);
   }, [repositories, filterOptions, user]);
 

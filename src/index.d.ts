@@ -60,9 +60,16 @@ declare type Config = {
   name: string;
   icon: string;
   technologies: string[];
+  pinned: boolean;
   links: { 
     [key: string]: string 
   };
+};
+
+type FilterOptionData = {
+  text: string;
+  title: string;
+  value: boolean;
 };
 
 declare type RepositoryBadge = {
@@ -74,14 +81,16 @@ declare type RepositoriesFilterOptions = {
   minLevelOfExperienceWithTechnology: number;
   technologies: string[];
   query: string;
+  pinnedsFirst: boolean;
   with: {
     description: boolean;
+    license: boolean;
     figmaLink: boolean;
-    skip: boolean;
+    some: boolean;
   };
   is: {
     fork: boolean;
-    skip: boolean;
+    some: boolean;
   };
 };
 

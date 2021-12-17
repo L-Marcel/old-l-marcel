@@ -1,7 +1,5 @@
 import { ListIcon, ListItem } from "@chakra-ui/react";
-
-import { AiOutlineCheck } from "react-icons/ai";
-import { VscChromeClose } from "react-icons/vsc";
+import { icons } from "../Icon";
 
 interface PersonalityItemProps {
   personality: Personality;
@@ -13,7 +11,7 @@ function PersonalityItem({ personality }: PersonalityItemProps) {
       fontSize={[14, 16]}
     >
       <ListIcon 
-        as={personality.type === "quality"? AiOutlineCheck:VscChromeClose} 
+        as={icons[personality.type === "quality"? "check":"close"]} 
         color={personality.type === "quality"? "primary.500":"red"}
         mb="1.5px"
       />

@@ -38,6 +38,7 @@ async function getGithubRepos(url: string, {
         name: repos[i].name,
         icon: repos[i].language,
         links: null,
+        pinned: config.pinned? config.pinned:false,
         technologies: [
           repos[i].language
         ],

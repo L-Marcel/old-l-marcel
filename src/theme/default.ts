@@ -60,6 +60,10 @@ export const theme = extendTheme({
       "input:focus": {
         boxShadow: "none !important"
       },
+      ".chakra-checkbox__control:not([data-checked])": {
+        color: "var(--primary) !important",
+        bgColor: "primary.100"
+      }
     }
   }
 });

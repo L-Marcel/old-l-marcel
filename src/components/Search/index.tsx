@@ -4,6 +4,7 @@ import { FaSearch } from "react-icons/fa";
 import useFilterOptions from "../../hooks/useFilterOptions";
 
 import Container from "../Container";
+import SearchFilters from "./SearchFilters";
 
 function Search() {
   const { filterOptions, setFilterOptions } = useFilterOptions();
@@ -22,14 +23,17 @@ function Search() {
       mt={-35}
       top={-35}
       pt={35}
+      mb={35}
       zIndex={30}
     >
       <Container
         maxW={["auto", 250, 300, 400]}
         p={0}
         color="primary.500"
+        mb={0}
         hoverEffect
         stickyMode
+        mr={[2, 2, 4, 15]}
       >
         <InputGroup>
           <InputLeftElement
@@ -48,7 +52,10 @@ function Search() {
           />
         </InputGroup>
       </Container>
-      { /*<SearchFilters/>*/ }
+      <SearchFilters
+        filterOptions={filterOptions}
+        onChangeFilterOptions={(filter) => setFilterOptions(filter)}
+      />
     </HStack>
   );
 };

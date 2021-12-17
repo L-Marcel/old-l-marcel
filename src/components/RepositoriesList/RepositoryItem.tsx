@@ -28,6 +28,15 @@ function RepositoryItem({ repo }: RepositoryItemProps) {
         cursorPointer
         onClick={onOpen}
       >
+        { repo.importedConfig.pinned && <Icon
+          name="flash"
+          position="absolute"
+          color="primary.500"
+          w={5}
+          h={5}
+          top={5}
+          right={5}
+        />}
         <Heading
           fontSize={[14, 16]}
           lineHeight={[5, 6]}

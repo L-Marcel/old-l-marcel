@@ -1,4 +1,4 @@
-import { Badge, Box, Heading, HStack, Text, useBreakpointValue } from "@chakra-ui/react";
+import { Badge, Box, Heading, Text, useBreakpointValue } from "@chakra-ui/react";
 import Icon from "../Icon";
 import Modal from "../Modal";
 import RepositoryModalButtonsGroup from "./RepositoryModalButtonsGroup";
