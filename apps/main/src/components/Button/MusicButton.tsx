@@ -14,7 +14,7 @@ function MusicButton({ ...rest }: IconButtonProps) {
     base: false
   });
 
-  const [music] = useState(new Audio("/music/koto_san.mp3"));
+  const [music] = useState(new Audio("/music/the_world_fair.mp3"));
   const [volume, setVolume] = useState(20);
   const [isPlaying, setIsPlaying] = useState(false);
   const [haveStarted, setHaveStart] = useState(false);
