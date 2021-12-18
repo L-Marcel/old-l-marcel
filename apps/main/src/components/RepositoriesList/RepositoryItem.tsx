@@ -63,7 +63,7 @@ function RepositoryItem({ repo }: RepositoryItemProps) {
         </Text>
         <HStack mt={2} color="primary.500">
           <Icon name={repo.importedConfig.technologies[0]} w={6} h={6}/>
-          <Text fontSize={[12, 15]}>{'->'} {repo.importedConfig.technologies[0]}</Text>
+          <Text fontSize={[12, 15]}>{'->'} {repo.importedConfig.technologies[0] ?? "Desconhecido"}</Text>
         </HStack>
       </Container>
     </>
