@@ -20,12 +20,12 @@ function filterRepositories(repos: Repository[], filter: RepositoriesFilterOptio
       return false;
     });
   };
+
   //is
   if(filter.is.some) {
-    const { fork } = filter.is;
-    repos = repos.filter(r => {
-      return r.fork || !fork;
-    });
+    const { fork, template } = filter.is;
+    repos = fork? repos.filter(r => r.fork):repos;
+    repos = template? repos.filter(r => r.template):repos;
   };
 
   // technologies: string[];

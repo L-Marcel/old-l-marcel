@@ -35,6 +35,7 @@ function AppProvider({ children }: AppProviderProps) {
     is: {
       some: false,
       fork: false,
+      template: false,
     },
     minLevelOfExperienceWithTechnology: 0,
     technologies: [],

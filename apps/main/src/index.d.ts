@@ -59,6 +59,7 @@ declare type Repository = {
   importedConfig?: Config;
   badge?: string;
   license?: string;
+  template?: boolean;
 };
 
 declare type Config = {
@@ -96,6 +97,7 @@ declare type RepositoriesFilterOptions = {
   is: {
     fork: boolean;
     some: boolean;
+    template: boolean;
   };
 };
 

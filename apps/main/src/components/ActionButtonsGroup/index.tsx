@@ -1,25 +1,40 @@
-import { ButtonGroup, useDisclosure, useToast } from "@chakra-ui/react";
-
+import { ButtonGroup, useDisclosure } from "@chakra-ui/react";
 import { boxShadow } from "../../theme/effects/shadow";
-import Button from "../Button";
-import { customToast } from "../CustomToast";
 
-import SocialModal from "../SocialModal";
+import dynamic from "next/dynamic";
+
+import Button from "../Button";
+
+import { CertificatesModalProps } from "../CertificatesModal";
+import { SocialModalProps } from "../SocialModal";
 interface ActionButtonsGroupProps {
   user: User;
 };
 
-function ActionButtonsGroup({ user }: ActionButtonsGroupProps) {
-  const toast = useToast();
-  const { isOpen, onOpen, onClose } = useDisclosure();
+const CertificatesModal = dynamic<CertificatesModalProps>(() => 
+import("../CertificatesModal").then(mod => mod.default)
+);
 
+const SocialModal = dynamic<SocialModalProps>(() => 
+import("../SocialModal").then(mod => mod.default)
+);
+
+function ActionButtonsGroup({ user }: ActionButtonsGroupProps) {
+  const { isOpen: socialIsOpen, onOpen: onOpenSocial, onClose: onCloseSocial } = useDisclosure();
+  const { isOpen: certificatesIsOpen, onOpen: onOpenCertificates, onClose: onCloseCertificates } = useDisclosure();
+  
   return (
     <>
       <SocialModal 
-        isOpen={isOpen} 
-        onClose={onClose}
+        isOpen={socialIsOpen} 
+        onClose={onCloseSocial}
         socialLinks={user.links}
         cvLink={user.cv}
+      />
+      <CertificatesModal
+        isOpen={certificatesIsOpen}
+        onClose={onCloseCertificates}
+        certificates={user.certificates}
       />
       <ButtonGroup 
         mx="auto"
@@ -33,19 +48,14 @@ function ActionButtonsGroup({ user }: ActionButtonsGroupProps) {
         <Button
           aria-label="share"
           icon="share"
-          onClick={onOpen}
+          onClick={onOpenSocial}
         >
           Rede
         </Button>
         <Button 
           aria-label="certificates"
           icon="certificate"
-          onClick={() => {
-            const id = 'comming-soon';
-            if(!toast.isActive(id)){
-              toast(customToast(id, "Essa função se encontra em produção!", "info"));
-            };
-          }}
+          onClick={() => onOpenCertificates()}
         >
           Certificados
         </Button>

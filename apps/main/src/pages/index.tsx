@@ -47,7 +47,7 @@ export default function Home({ user, repos }: HomeProps) {
   return (
     <>
       <Head>
-        <title>Lucas Marcel - Portfólio</title>
+        <title>Lucas Marcel</title>
       </Head>
       <Flex
         justifyContent="space-between"
@@ -137,8 +137,6 @@ export const getStaticProps: GetStaticProps = async() => {
     } as User;
   });
 
-  console.log(user.reposUrl);
-
   const repos = await getGithubRepos(user.reposUrl, {
     initialPage: 1,
     reposPerPage: 50,
@@ -179,7 +177,7 @@ export const getStaticProps: GetStaticProps = async() => {
       return _tecnology;
     });
     const personality: Personality[] = res.data.personality;
-    const certificate: Certificate[] = res.data.certificate.map(certificate => {
+    const certificates: Certificate[] = res.data.certificate.map(certificate => {
       return {
         name: certificate.name,
         issuingOrganization: certificate.issuing_organization,
@@ -194,7 +192,7 @@ export const getStaticProps: GetStaticProps = async() => {
       about,
       technologies,
       personality,
-      certificate
+      certificates
     };
   }).catch((err) => {
     console.log(err);

@@ -23,6 +23,7 @@ async function getGithubRepos(url: string, {
         fullname: repo.full_name,
         description: repo.description,
         fork: repo.fork,
+        template: repo.is_template,
         url: repo.url,
         github: repo.svn_url,
         language: repo.language,

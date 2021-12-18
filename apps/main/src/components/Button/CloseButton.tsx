@@ -17,7 +17,7 @@ function CloseButton({ onClick }: IconButtonProps) {
       h={[6, 38]}
       minW={6}
       bg="primary.500"
-      aria-label="close-media-modal" 
+      aria-label="close-button" 
       icon={<Icon name="close"/>} 
       color="white"
       {...boxShadow()}

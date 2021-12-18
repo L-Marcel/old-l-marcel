@@ -71,7 +71,8 @@ function FilterDrawer({ onClose, isOpen }: FilterDrawerProps) {
           <FilterOption
             onChangeData={(some, data) => handleOnChangeIs(some, data)}
             data={[
-              { title: "Fork", text: "fork", value: filterOptions.is.fork }
+              { title: "Fork", text: "fork", value: filterOptions.is.fork },
+              { title: "Template", text: "template", value: filterOptions.is.template }
             ]}
             title="Tipo de repositório:"
           />

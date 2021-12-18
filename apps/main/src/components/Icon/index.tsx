@@ -1,7 +1,8 @@
 import { Icon as ChakraIcon, IconProps as ChakraIconProps } from "@chakra-ui/react";
 import { 
   FaReact, FaLinkedinIn, FaGithubAlt, FaDocker, FaGitAlt, 
-  FaJava, FaPython, FaDiscord, FaFacebookF, FaBalanceScale
+  FaJava, FaPython, FaDiscord, FaFacebookF, FaBalanceScale,
+  FaEye
 } from "react-icons/fa";
 import { SiTypescript, SiNextdotjs, SiGnubash, SiDart } from "react-icons/si";
 import { DiCss3, DiSass } from "react-icons/di";
@@ -11,7 +12,7 @@ import { BsQuestionCircle, BsCheck2Circle, BsInstagram } from "react-icons/bs";
 import { AiOutlineCalendar, AiOutlineCheck, AiOutlineInfoCircle, AiOutlineClose, AiFillSafetyCertificate } from "react-icons/ai";
 import { BiError } from "react-icons/bi";
 import { IoIosRocket, IoLogoJavascript } from "react-icons/io";
-import { FiDownload, FiFigma, FiPaperclip } from "react-icons/fi";
+import { FiDownload, FiFigma, FiPaperclip, FiCopy } from "react-icons/fi";
 import { GrNode } from "react-icons/gr";
 import { VscTerminalPowershell } from "react-icons/vsc";
 import { GiShare } from "react-icons/gi";
@@ -60,7 +61,9 @@ export const icons = {
   "filter": RiFilter3Fill,
   "flash": RiFlashlightFill,
   "flash-off": RiFlashlightLine,
-  "certificate": AiFillSafetyCertificate
+  "certificate": AiFillSafetyCertificate,
+  "eye": FaEye,
+  "copy": FiCopy
 };
 
 function Icon({ name = "default", ...rest }: IconProps) {

@@ -3,7 +3,7 @@ import { VStack } from "@chakra-ui/react";
 import Modal from "../Modal";
 import SocialModalItem from "./SocialModaItem";
 
-interface SocialModalProps {
+export interface SocialModalProps {
   onClose: () => void;
   isOpen: boolean;
   socialLinks: SocialLink[];
@@ -11,9 +11,6 @@ interface SocialModalProps {
 };
 
 function SocialModal({ isOpen, onClose, socialLinks, cvLink }: SocialModalProps) {
-  const firstLinks = socialLinks.slice(0, 4);
-  const links = socialLinks.slice(4, socialLinks.length);
-
   return (
     <Modal
       borderRadius={8}
@@ -35,7 +32,7 @@ function SocialModal({ isOpen, onClose, socialLinks, cvLink }: SocialModalProps)
         bgSize="cover"
       >
         {
-          firstLinks.map(s => {
+          socialLinks.map(s => {
             return (
               <SocialModalItem
                 key={s.name}

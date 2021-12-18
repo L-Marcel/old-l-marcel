@@ -29,7 +29,6 @@ function SocialModalItem({ link, media, type = "link" }: SocialModalButtonProps)
     });
   };
 
-
   if(type === "copy") {
     return (
       <Button
