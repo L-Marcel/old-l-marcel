@@ -36,16 +36,14 @@ async function getGithubRepos(url: string, {
       .then(config => config.data).catch(() => null);
       config = {
         name: repos[i].name,
-        icon: repos[i].language,
+        icon: repos[i].language ?? "default",
         links: null,
         pinned: config?.pinned? config?.pinned:false,
-        technologies: [
-          repos[i].language ?? "none"
-        ],
+        technologies: [],
         ...config,
       };
 
-      if(config.icon !== "self") {
+      if(config.icon !== "self" && config.technologies.length > 0) {
         config.icon = config.technologies[0];
       };
 
@@ -76,9 +74,7 @@ async function getGithubRepos(url: string, {
     };
 
     return repos;
-  }).catch((e) => {
-    return [] as Repository[]
-  });
+  }).catch(() => [] as Repository[]);
 
   const reposListLength = repos.length + pageRepos.length;
 
