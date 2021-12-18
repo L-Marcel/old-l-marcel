@@ -1,4 +1,4 @@
-import { IconButtonProps, IconButton, useBreakpointValue, Slider, SliderTrack, SliderFilledTrack, SliderThumb, useToast  } from "@chakra-ui/react";
+import { IconButtonProps, IconButton, useBreakpointValue, Slider, SliderTrack, SliderFilledTrack, SliderThumb, useToast, Box  } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
 import Icon from "../Icon";
@@ -8,10 +8,12 @@ import { customToast } from "../CustomToast";
 
 function MusicButton({ ...rest }: IconButtonProps) {
   const toast = useToast();
+
   const isWideOrNormalVersion = useBreakpointValue({
     lg: true,
     base: false
   });
+
   const [music] = useState(new Audio("/music/koto_san.mp3"));
   const [volume, setVolume] = useState(20);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -54,7 +56,7 @@ function MusicButton({ ...rest }: IconButtonProps) {
           position={"absolute !important" as any}
           bottom={-19}
           w="90%"
-          ml="3%"
+          ml="5%"
           justifySelf="center"
           colorScheme="primary"
           defaultValue={20}
@@ -67,7 +69,7 @@ function MusicButton({ ...rest }: IconButtonProps) {
             <SliderFilledTrack/>
           </SliderTrack>
           <SliderThumb/>
-        </Slider> 
+        </Slider>
       }
     </>
   );

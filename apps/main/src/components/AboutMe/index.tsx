@@ -39,28 +39,32 @@ function AboutMe({ about, ...rest }: AboutMeProps) {
         flexWrap="wrap"
       >
         <Box
-          w={["110%", "35%"]}
-          ml={-5}
+          ml={-4}
           mb={-5}
-          minW={275}
-          h={165}
-          alt="stats"
-          bgRepeat="no-repeat"
-          bgSize="cover"
-          bgImage={`https://github-readme-stats.vercel.app/api?username=l-marcel&show_icons=true&${getReadmeCardConfig()}`}
-        />
+          w={280}
+          minW={280}
+          display="flex"
+        >
+          <Image
+            w={280}
+            h={[115, 150]}
+            objectFit="cover"
+            objectPosition="0% 0%"
+            src={`https://github-readme-stats.vercel.app/api?username=l-marcel&show_icons=true&${getReadmeCardConfig()}`}
+          />
+        </Box>
         { isWideOrNormalVersion && <Box
           w={["100%", "65%"]}
-          maxW={["100%", "100%", "calc(100% - 265px)"]}
+          maxW={["100%", "100%", "calc(100% - 280px)"]}
           minW={["100%", "100%", 200]}
           bgRepeat="no-repeat"
           bgSize="contain"
-          ml={[0, 0, 0, -4, -10]}
+          ml={[0, 0, 0, -4, -4]}
           mt={[-4, -6, 0]}
           mb={-5}
           h={[120, 150]}
           alt="langs" 
-          bgImage={`https://github-readme-stats.vercel.app/api/top-langs/?username=l-marcel&layout=compact&${getReadmeCardConfig()}`}
+          bgImage={`https://github-readme-stats.vercel.app/api/top-langs/?username=l-marcel&${getReadmeCardConfig()}`}
         /> }
       </Box>
     </Container>
