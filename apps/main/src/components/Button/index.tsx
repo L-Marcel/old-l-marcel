@@ -1,4 +1,4 @@
-import { Button as ChakraButton, ButtonProps as ChakraButtonProps, IconButton, useBreakpointValue } from "@chakra-ui/react";
+import { Button as ChakraButton, ButtonProps as ChakraButtonProps, useBreakpointValue } from "@chakra-ui/react";
 import Icon from "../Icon";
 
 import style from "../../theme/scss/button.module.scss";

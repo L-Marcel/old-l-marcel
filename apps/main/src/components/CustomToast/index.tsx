@@ -50,10 +50,15 @@ function CustomToast({ title, type, ...rest }: CustomToastProps) {
   );
 };
 
-export const customToast = (id: string, title: string, type: CustomToastTypeOptions = "info") => {
+export const customToast = (
+  id: string, 
+  title: string, 
+  type: CustomToastTypeOptions = "info", 
+  isWideOrNormalVersion = true
+) => {
   return {
     id,
-    position: "top-end",
+    position: isWideOrNormalVersion? "top-end":"bottom-end",
     duration: 3000,
     isClosable: true,
     render: () => {

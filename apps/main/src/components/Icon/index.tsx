@@ -9,7 +9,10 @@ import { DiCss3, DiSass } from "react-icons/di";
 import { AiFillHtml5, AiFillYoutube } from "react-icons/ai";
 import { RiFlutterFill, RiFilePaper2Line, RiFilter3Fill, RiFlashlightFill, RiFlashlightLine } from "react-icons/ri";
 import { BsQuestionCircle, BsCheck2Circle, BsInstagram } from "react-icons/bs";
-import { AiOutlineCalendar, AiOutlineCheck, AiOutlineInfoCircle, AiOutlineClose, AiFillSafetyCertificate } from "react-icons/ai";
+import { 
+  AiOutlineCalendar, AiOutlineCheck, AiOutlineInfoCircle, AiOutlineClose, AiFillSafetyCertificate,
+  AiFillSound, AiOutlineSound
+} from "react-icons/ai";
 import { BiError } from "react-icons/bi";
 import { IoIosRocket, IoLogoJavascript } from "react-icons/io";
 import { FiDownload, FiFigma, FiPaperclip, FiCopy } from "react-icons/fi";
@@ -63,7 +66,9 @@ export const icons = {
   "flash-off": RiFlashlightLine,
   "certificate": AiFillSafetyCertificate,
   "eye": FaEye,
-  "copy": FiCopy
+  "copy": FiCopy,
+  "sound-on": AiFillSound,
+  "sound-off": AiOutlineSound
 };
 
 function Icon({ name = "default", ...rest }: IconProps) {

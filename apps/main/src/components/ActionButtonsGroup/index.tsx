@@ -7,9 +7,17 @@ import Button from "../Button";
 
 import { CertificatesModalProps } from "../CertificatesModal";
 import { SocialModalProps } from "../SocialModal";
+
 interface ActionButtonsGroupProps {
   user: User;
 };
+
+const MusicButton = dynamic(() => 
+import("../Button/MusicButton").then(mod => mod.default), 
+{
+  loading: () => null,
+  ssr: false
+});
 
 const CertificatesModal = dynamic<CertificatesModalProps>(() => 
 import("../CertificatesModal").then(mod => mod.default)
@@ -59,6 +67,9 @@ function ActionButtonsGroup({ user }: ActionButtonsGroupProps) {
         >
           Certificados
         </Button>
+        <MusicButton
+          aria-label="music-button"
+        />
       </ButtonGroup>
     </>
   );
