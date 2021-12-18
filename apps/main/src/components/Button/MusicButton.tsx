@@ -5,16 +5,15 @@ import Icon from "../Icon";
 
 import style from "../../theme/scss/button.module.scss";
 import { customToast } from "../CustomToast";
+import { getMusic } from "../../utils/getMusic";
 
 function MusicButton({ ...rest }: IconButtonProps) {
   const toast = useToast();
-
   const isWideOrNormalVersion = useBreakpointValue({
     lg: true,
     base: false
   });
-
-  const [music] = useState(new Audio("/music/the_world_fair.mp3"));
+  const [music] = useState(new Audio(getMusic()));
   const [volume, setVolume] = useState(20);
   const [isPlaying, setIsPlaying] = useState(false);
   const [haveStarted, setHaveStart] = useState(false);
