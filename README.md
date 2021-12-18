@@ -1,5 +1,5 @@
 <h1>👋 Olá! Me chamo Lucas Marcel.</h1>
-<img src="https://github.com/L-Marcel/L-Marcel/blob/main/public/banner.gif" alt="banner">
+<img src="https://github.com/L-Marcel/L-Marcel/blob/main/apps/main/public/banner.gif" alt="banner">
 
 Tenho experiência na área da Ciência da Computação, com ênfase em Informática. Estou cursando o último ano do ensino Técnico Integrado em Informática no Instituto Federal e tenho experiência com: 
 
