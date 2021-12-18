@@ -137,6 +137,8 @@ export const getStaticProps: GetStaticProps = async() => {
     } as User;
   });
 
+  console.log(user.reposUrl);
+
   const repos = await getGithubRepos(user.reposUrl, {
     initialPage: 1,
     reposPerPage: 50,

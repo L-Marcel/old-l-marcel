@@ -38,9 +38,9 @@ async function getGithubRepos(url: string, {
         name: repos[i].name,
         icon: repos[i].language,
         links: null,
-        pinned: config.pinned? config.pinned:false,
+        pinned: config?.pinned? config?.pinned:false,
         technologies: [
-          repos[i].language
+          repos[i].language ?? "none"
         ],
         ...config,
       };
@@ -51,7 +51,7 @@ async function getGithubRepos(url: string, {
 
       const languageIsIncluded = config.technologies.includes(repos[i].language);
 
-      if(!languageIsIncluded) {
+      if(!languageIsIncluded && repos[i].language) {
         config.technologies.push(repos[i].language);
       };
 
@@ -76,7 +76,9 @@ async function getGithubRepos(url: string, {
     };
 
     return repos;
-  }).catch(() => [] as Repository[]);
+  }).catch((e) => {
+    return [] as Repository[]
+  });
 
   const reposListLength = repos.length + pageRepos.length;
 
