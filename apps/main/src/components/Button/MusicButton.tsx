@@ -32,7 +32,8 @@ function MusicButton({ ...rest }: IconButtonProps) {
 
   useEffect(() => {
     if(haveStarted) {
-      toast(customToast("music", "Espero que a musica te agrade!"));
+      toast(customToast("music", "Espero que a música te agrade!"));
+      music.onended = () => isPlaying? music.play():music.pause();
     };
   }, [haveStarted]);
 
