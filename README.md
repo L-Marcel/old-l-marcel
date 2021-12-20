@@ -34,7 +34,7 @@ Procuro me manter atualizado sobre as tecnologias que utilizo constantemente, ad
       <ul>
         <li><p>Linguagens e tecnologias: Next.js, React.js, JavaScript, TypeScript, Node.js, Git, HTTML, CSS e SASS;</p></li>
         <li><p>Metodologias e práticas: SCRUM, deploy da aplicação, otimização, boas práticas e idealização do produto;</p></li>
-        <li><p>Conceitos: Server Side Rendering (SSR), Single Page Application (SPA), Static Site Generation (SSG), Client Side Rendering (CSR) e Application Interface Programing (API);</p></li>
+        <li><p>Conceitos: Server Side Rendering (SSR), Single Page Application (SPA), Static Site Generation (SSG), Client Side Rendering (CSR) e Application Programing Interface (API);</p></li>
         <li><p>Infraestrutura de redes: Domain Name Service (DNS), Hypertext Transfer Protocol (HTTP), HTTPS, SSH, comunicação entre servidores, escalabilidade e tolerância a falhas.</p></li>
         <li><p>Jogos: RPG, MOBA, MMORPG, tabuleiro e cartas;</p></li>
         <li><p>Anime: One Piece, de preferência.</p></li>
@@ -57,8 +57,6 @@ Procuro me manter atualizado sobre as tecnologias que utilizo constantemente, ad
 <br/>
 
 <div align="center">
-  <img alt="stats" src="https://github-readme-stats.vercel.app/api?username=l-marcel&show_icons=true&
-  layout=compact&bg_color=white&title_color=423958&border_color=ffffff00&icon_color=423958&locale=pt-br"/>
-
+  <img alt="stats" src="https://github-readme-stats.vercel.app/api?username=l-marcel&show_icons=true&layout=compact&bg_color=white&title_color=423958&border_color=ffffff00&icon_color=423958&locale=pt-br"/>
   <img alt="langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=l-marcel&layout=compact&bg_color=white&title_color=423958&border_color=ffffff00&locale=pt-br"/>
 </div>
