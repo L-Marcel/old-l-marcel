@@ -57,7 +57,8 @@ Procuro me manter atualizado sobre as tecnologias que utilizo constantemente, ad
 <br/>
 
 <div align="center">
-  <img alt="stats" src="https://github-readme-stats.vercel.app/api?username=l-marcel&show_icons=true&$
+  <img alt="stats" src="https://github-readme-stats.vercel.app/api?username=l-marcel&show_icons=true&
   layout=compact&bg_color=white&title_color=423958&border_color=ffffff00&icon_color=423958&locale=pt-br"/>
+
   <img alt="langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=l-marcel&layout=compact&bg_color=white&title_color=423958&border_color=ffffff00&locale=pt-br"/>
 </div>
