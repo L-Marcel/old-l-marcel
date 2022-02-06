@@ -7,12 +7,12 @@ module.exports = {
         destination: `/:path*`,
       },
       {
-        source: '/example',
-        destination: `https://l-marcel-example.vercel.app/example`,
+        source: '/projects',
+        destination: `https://l-marcel-projects.vercel.app/projects`,
       },
       {
-        source: '/example',
-        destination: `https://l-marcel.-example.vercel.app/example/:path*`,
+        source: '/projects',
+        destination: `https://l-marcel.-projects.vercel.app/projects/:path*`,
       },
     ]
   },
