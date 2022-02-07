@@ -17,10 +17,16 @@ function Home() {
       <h1>Projetos hospedados:</h1>
       <div className={style.list}>
         {projects.map(p => {
+          const name = p.name.toLocaleLowerCase().replace(/ /g, "-");
           return (
-            <Link href={`/${p.name.toLocaleLowerCase().replace(/ /g, "-")}`} key={p.name}>
+            <Link href={`/${name}`} key={name}>
               <div className={style.item}>
-                <h1>{p.name}</h1>
+                <div className={style.body}>
+                  <h1>{p.name}</h1>
+                </div>
+                <div className={style.banner} style={{
+                  backgroundImage: `url("/projects/banners/${name}.png")`
+                }}/>
               </div>
             </Link>
           );
