@@ -8,11 +8,11 @@ module.exports = {
       },
       {
         source: '/projects',
-        destination: `https://l-marcel-projects.vercel.app/projects`,
+        destination: `https://l-marcel-projects.vercel.app/`,
       },
       {
         source: '/projects',
-        destination: `https://l-marcel.-projects.vercel.app/projects/:path*`,
+        destination: `https://l-marcel-projects.vercel.app/:path*`,
       },
     ]
   },
