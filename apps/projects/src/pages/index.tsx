@@ -25,7 +25,7 @@ function Home() {
                   <h1>{p.name}</h1>
                 </div>
                 <div className={style.banner} style={{
-                  backgroundImage: `url("/projects/banners/${name}.png")`
+                  backgroundImage: `url("/banners/${name}.png")`
                 }}/>
               </div>
             </Link>
