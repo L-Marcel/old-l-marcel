@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useStopwatch } from "react-timer-hook";
-import style from "./styles/snake.module.scss";
+import style from "./snake.module.scss";
 import { 
   AiOutlineArrowDown, 
   AiOutlineArrowLeft,
