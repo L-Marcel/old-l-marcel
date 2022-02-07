@@ -121,6 +121,7 @@ function SnakeScreen() {
     })
   };
 
+  //Function to get a random and valid new point to target
   function getRandomValidTargetPoint() {
     let minX = Math.ceil(0);
     let maxX = Math.floor(24);
@@ -137,7 +138,7 @@ function SnakeScreen() {
     return [x, y];
   };
 
-  //Reset the game
+  //Function to reset the game
   function gameOver() {
     const time = `${getTwoDigitsNumber(hours)}:${getTwoDigitsNumber(minutes)}:${getTwoDigitsNumber(seconds)}`;
     let newRecords = [ ...records ];
