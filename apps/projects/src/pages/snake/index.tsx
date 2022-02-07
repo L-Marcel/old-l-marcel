@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useStopwatch } from "react-timer-hook";
-import style from "../../styles/snake.module.scss";
+import style from "./styles/snake.module.scss";
 import { 
   AiOutlineArrowDown, 
   AiOutlineArrowLeft,
@@ -25,19 +25,19 @@ function SnakeScreen() {
       const e: KeyboardEvent = ev;
       
       if(e) {
-        if(e.key === "ArrowDown") {
+        if(e.key === "ArrowDown" || e.key.toLocaleLowerCase() === "s") {
           setDirection("d");
         };
 
-        if(e.key === "ArrowUp") {
+        if(e.key === "ArrowUp" || e.key.toLocaleLowerCase() === "w") {
           setDirection("u");
         };
 
-        if(e.key === "ArrowLeft") {
+        if(e.key === "ArrowLeft" || e.key.toLocaleLowerCase() === "a") {
           setDirection("l");
         };
 
-        if(e.key === "ArrowRight") {
+        if(e.key === "ArrowRight" || e.key.toLocaleLowerCase() === "d") {
           setDirection("r");
         };
 
